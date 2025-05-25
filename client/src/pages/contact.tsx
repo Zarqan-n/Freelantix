@@ -83,40 +83,167 @@ export default function Contact() {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
+      {/* Enhanced Hero Section */}
+      <section className="py-24 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-30">
+          <motion.div 
+            className="absolute top-20 left-20 w-64 h-64 bg-neon-pink/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.4, 0.2],
+              x: [0, 30, 0],
+              y: [0, -20, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-20 right-20 w-80 h-80 bg-neon-blue/15 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.15, 0.3, 0.15],
+              x: [0, -40, 0],
+              y: [0, 20, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          
+          {/* Floating particles */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-neon-green/40 rounded-full"
+              style={{
+                left: `${15 + i * 15}%`,
+                top: `${30 + (i % 2) * 40}%`
+              }}
+              animate={{
+                y: [-20, -50, -20],
+                opacity: [0, 1, 0],
+                scale: [0.5, 1.2, 0.5]
+              }}
+              transition={{
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.8,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl lg:text-6xl font-black mb-6">
+            <motion.h1 
+              className="text-4xl lg:text-6xl font-black mb-6"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Ready to Elevate Your <span className="neon-pink">Business Online?</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Let's build your success story! Send us a message or schedule a consultation to discuss your project.
-            </p>
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              Let's build your success story! Send us a message or schedule a consultation to discuss your project and transform your digital presence.
+            </motion.p>
+            
+            {/* Floating call-to-action badges */}
+            <motion.div
+              className="flex flex-wrap justify-center gap-4 mt-8"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <motion.div
+                className="px-4 py-2 bg-neon-blue/20 backdrop-blur-sm rounded-full text-sm font-medium border border-neon-blue/30"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                💬 24hr Response Time
+              </motion.div>
+              <motion.div
+                className="px-4 py-2 bg-neon-green/20 backdrop-blur-sm rounded-full text-sm font-medium border border-neon-green/30"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                🚀 Free Consultation
+              </motion.div>
+              <motion.div
+                className="px-4 py-2 bg-neon-pink/20 backdrop-blur-sm rounded-full text-sm font-medium border border-neon-pink/30"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                ⭐ Premium Support
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-6">
+      {/* Enhanced Contact Form & Info */}
+      <section className="py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 relative overflow-hidden">
+        {/* Background decorative grid */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-blue/5 to-transparent transform -skew-y-3" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-pink/5 to-transparent transform skew-y-3" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-            {/* Contact Form */}
+            {/* Enhanced Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -50, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              whileHover={{ 
+                y: -8,
+                transition: { type: "spring", stiffness: 300, damping: 20 }
+              }}
               transition={{ duration: 0.8 }}
+              className="group"
             >
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-bold neon-blue">
-                    Send us a message
-                  </CardTitle>
+              {/* Form glow effect */}
+              <motion.div 
+                className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-neon-blue/30 via-neon-green/30 to-neon-pink/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
+                animate={{ 
+                  rotate: [0, 360],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{ 
+                  duration: 10, 
+                  repeat: Infinity, 
+                  ease: "linear"
+                }}
+              />
+              
+              <Card className="relative bg-gradient-to-br from-card/95 via-card to-card/90 border border-border/30 backdrop-blur-sm hover:shadow-2xl hover:shadow-neon-blue/10 transition-all duration-500 rounded-3xl">
+                <CardHeader className="pb-6">
+                  <motion.div
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <CardTitle className="text-3xl font-bold neon-blue flex items-center gap-3">
+                      <motion.div
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        💬
+                      </motion.div>
+                      Send us a message
+                    </CardTitle>
+                    <p className="text-muted-foreground mt-2 text-sm">
+                      Tell us about your project and let's create something amazing together
+                    </p>
+                  </motion.div>
                 </CardHeader>
                 <CardContent>
                   <Form {...form}>
@@ -209,59 +336,149 @@ export default function Contact() {
                         )}
                       />
 
-                      <Button 
-                        type="submit" 
-                        size="lg"
-                        className="w-full btn-neon bg-neon-green text-background hover:bg-neon-green/90"
-                        disabled={contactMutation.isPending}
+                      <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        {contactMutation.isPending ? "Sending..." : "Send Message"}
-                      </Button>
+                        <Button 
+                          type="submit" 
+                          size="lg"
+                          className="group/btn relative overflow-hidden w-full bg-gradient-to-r from-neon-green/80 to-neon-blue/80 text-white font-bold py-4 rounded-xl border border-neon-green/40 hover:border-neon-green/60 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-neon-green/20"
+                          disabled={contactMutation.isPending}
+                        >
+                          <motion.span
+                            className="relative z-10 flex items-center justify-center gap-3"
+                            animate={contactMutation.isPending ? {} : { x: [0, 2, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            {contactMutation.isPending ? (
+                              <>
+                                <motion.div
+                                  animate={{ rotate: 360 }}
+                                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                >
+                                  ⏳
+                                </motion.div>
+                                Sending...
+                              </>
+                            ) : (
+                              <>
+                                <motion.div
+                                  animate={{ rotate: [0, 20, 0] }}
+                                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                  🚀
+                                </motion.div>
+                                Send Message
+                                <motion.div
+                                  animate={{ x: [0, 4, 0] }}
+                                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                  →
+                                </motion.div>
+                              </>
+                            )}
+                          </motion.span>
+                          
+                          {/* Button glow effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-neon-green/50 to-neon-blue/50 opacity-0 group-hover/btn:opacity-100 rounded-xl"
+                            initial={{ x: "-100%" }}
+                            whileHover={{ x: "0%" }}
+                            transition={{ duration: 0.6 }}
+                          />
+                        </Button>
+                      </motion.div>
                     </form>
                   </Form>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Contact Info */}
+            {/* Enhanced Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 50, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-8"
             >
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-bold neon-green">
-                    Get in Touch
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-8 leading-relaxed">
-                    We're here to help bring your vision to life. Whether you have a specific project in mind or need guidance on your digital strategy, our team is ready to assist you.
-                  </p>
-                  
-                  <div className="space-y-6">
-                    {contactInfo.map((info, index) => (
-                      <motion.div
-                        key={info.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                        className="flex items-center space-x-4"
-                      >
-                        <div className={`w-12 h-12 bg-${info.color}/20 rounded-lg flex items-center justify-center`}>
-                          <info.icon className={`${info.color}`} size={20} />
-                        </div>
-                        <div>
-                          <div className="font-semibold">{info.title}</div>
-                          <div className="text-muted-foreground">{info.value}</div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                whileHover={{ 
+                  y: -8,
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
+                }}
+                className="group"
+              >
+                {/* Info card glow effect */}
+                <motion.div 
+                  className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-neon-green/30 via-neon-pink/30 to-neon-blue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
+                  animate={{ 
+                    rotate: [360, 0],
+                    scale: [1.02, 0.98, 1.02]
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity, 
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <Card className="relative bg-gradient-to-br from-card/95 via-card to-card/90 border border-border/30 backdrop-blur-sm hover:shadow-2xl hover:shadow-neon-green/10 transition-all duration-500 rounded-3xl">
+                  <CardHeader className="pb-6">
+                    <motion.div
+                      initial={{ y: -10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      <CardTitle className="text-3xl font-bold neon-green flex items-center gap-3">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          📞
+                        </motion.div>
+                        Get in Touch
+                      </CardTitle>
+                      <p className="text-muted-foreground mt-2 text-sm">
+                        Multiple ways to reach us - we're always here to help
+                      </p>
+                    </motion.div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
+                      We're here to help bring your vision to life. Whether you have a specific project in mind or need guidance on your digital strategy, our team is ready to assist you.
+                    </p>
+                    
+                    <div className="space-y-6">
+                      {contactInfo.map((info, index) => (
+                        <motion.div
+                          key={info.title}
+                          initial={{ opacity: 0, y: 20, x: -20 }}
+                          animate={{ opacity: 1, y: 0, x: 0 }}
+                          whileHover={{ x: 5, scale: 1.02 }}
+                          transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                          className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-muted/50 to-muted/30 border border-border/30 hover:border-border/60 transition-all duration-300 group/item"
+                        >
+                          <motion.div 
+                            className={`w-14 h-14 bg-${info.color}/20 rounded-xl flex items-center justify-center border border-${info.color}/30 group-hover/item:bg-${info.color}/30 transition-all duration-300`}
+                            whileHover={{ rotate: 10, scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <info.icon className={`${info.color} group-hover/item:scale-110 transition-transform duration-300`} size={22} />
+                          </motion.div>
+                          <div>
+                            <div className="font-bold text-lg group-hover/item:text-foreground transition-colors duration-300">{info.title}</div>
+                            <div className="text-muted-foreground group-hover/item:text-muted-foreground/80 transition-colors duration-300">{info.value}</div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
               <Card className="bg-card border-border">
                 <CardContent className="p-6">

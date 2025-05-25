@@ -456,19 +456,21 @@ export default function Services() {
                 />
                 
                 <div className="relative p-8 rounded-3xl bg-gradient-to-br from-card/80 via-card/60 to-card/40 border border-border/30 backdrop-blur-sm hover:border-border/60 transition-all duration-500 h-full">
-                  {/* Enhanced step number */}
+                  {/* Enhanced step number with better visibility */}
                   <motion.div 
-                    className={`w-20 h-20 bg-gradient-to-br from-${phase.color} to-${phase.color}/80 rounded-2xl flex items-center justify-center text-background font-bold text-2xl mx-auto mb-6 shadow-lg`}
+                    className={`w-20 h-20 bg-gradient-to-br from-${phase.color} to-${phase.color}/90 rounded-2xl flex items-center justify-center text-white font-black text-3xl mx-auto mb-6 shadow-2xl border-2 border-${phase.color}/50`}
                     whileHover={{ 
                       scale: 1.1,
                       rotate: [0, -5, 5, 0],
                       transition: { duration: 0.5 }
                     }}
                     style={{
-                      boxShadow: `0 10px 30px ${phase.color === 'neon-blue' ? 'rgba(26,231,255,0.3)' : phase.color === 'neon-green' ? 'rgba(57,255,20,0.3)' : 'rgba(255,20,147,0.3)'}`
+                      boxShadow: `0 15px 40px ${phase.color === 'neon-blue' ? 'rgba(26,231,255,0.4)' : phase.color === 'neon-green' ? 'rgba(57,255,20,0.4)' : 'rgba(255,20,147,0.4)'}`,
+                      textShadow: '0 2px 8px rgba(0,0,0,0.8)',
+                      filter: 'brightness(1.1) contrast(1.2)'
                     }}
                   >
-                    {phase.step}
+                    <span className="relative z-10 drop-shadow-lg">{phase.step}</span>
                     
                     {/* Pulsing ring effect */}
                     <motion.div
