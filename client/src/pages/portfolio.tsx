@@ -119,16 +119,49 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-6">
+      <section className="py-20 bg-gradient-to-br from-background via-muted/50 to-background relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-neon-blue/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-pink/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-neon-green/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10"
           >
             {filteredItems.map((item, index) => (
               <PortfolioItem key={item.id} item={item} index={index} />
             ))}
           </motion.div>
+          
+          {/* Show more projects button */}
+          {filteredItems.length > 0 && (
+            <motion.div
+              className="text-center mt-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <motion.button
+                className="px-8 py-4 bg-gradient-to-r from-neon-blue/20 to-neon-green/20 backdrop-blur-sm rounded-2xl font-semibold border border-neon-blue/30 hover:border-neon-blue/60 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-neon-blue/20"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center gap-2">
+                  Load More Projects
+                  <motion.div
+                    animate={{ rotate: [0, 180, 360] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  >
+                    ↻
+                  </motion.div>
+                </span>
+              </motion.button>
+            </motion.div>
+          )}
         </div>
       </section>
 
