@@ -273,10 +273,22 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-32 relative overflow-hidden">
-        {/* Premium background */}
+      <section className="py-40 relative overflow-hidden">
+        {/* Enhanced Premium background with patterns */}
         <div className="absolute inset-0 gradient-bg"></div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-blue to-transparent"></div>
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }}></div>
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-blue to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-green to-transparent"></div>
+        
+        {/* Floating particles */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-neon-blue rounded-full opacity-60 animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-neon-pink rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 left-3/4 w-1.5 h-1.5 bg-neon-green rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
