@@ -49,6 +49,7 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
           className="relative group overflow-hidden rounded-3xl cursor-pointer"
           style={{ perspective: "1000px" }}
         >
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-card/95 via-card to-card/90 backdrop-blur-sm border border-border/30 shadow-2xl">
       {/* Multi-layered enhanced glow effect */}
       <motion.div 
         className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-neon-blue/60 via-neon-purple/60 to-neon-pink/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
@@ -77,21 +78,31 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
         }}
       />
       
-      <HolographicCard className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-card/95 via-card to-card/90 backdrop-blur-sm border border-border/30 shadow-2xl group">
-        {/* Liquid morph background effect */}
-        <LiquidMorph color={index % 3 === 0 ? "#1ae7ff" : index % 3 === 1 ? "#39ff14" : "#ff1493"} />
-        
-        {/* Animated mesh gradient overlay */}
-        <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000"
-          style={{
-            background: `conic-gradient(from ${index * 45}deg, #1ae7ff, #39ff14, #ff1493, #1ae7ff)`
-          }}
-          animate={{
-            background: `conic-gradient(from ${(index * 45) + 360}deg, #1ae7ff, #39ff14, #ff1493, #1ae7ff)`
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        />
+            {/* Enhanced glow effects */}
+            <motion.div 
+              className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-neon-blue/50 via-neon-purple/50 to-neon-pink/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
+              animate={{ 
+                rotate: [0, 360],
+                scale: [1, 1.05, 1]
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: "linear"
+              }}
+            />
+            
+            {/* Animated mesh gradient overlay */}
+            <motion.div
+              className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000"
+              style={{
+                background: `conic-gradient(from ${index * 45}deg, #1ae7ff, #39ff14, #ff1493, #1ae7ff)`
+              }}
+              animate={{
+                background: `conic-gradient(from ${(index * 45) + 360}deg, #1ae7ff, #39ff14, #ff1493, #1ae7ff)`
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            />
         {/* Image section with enhanced overlay */}
         <div className="relative h-72 overflow-hidden">
           <motion.img
@@ -348,8 +359,8 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
             transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
           />
         </motion.div>
-        </div>
-      </HolographicCard>
+          </div>
+        </motion.div>
       </MagneticWrapper>
     </InteractiveCursor>
   );

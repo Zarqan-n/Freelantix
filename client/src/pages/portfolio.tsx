@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import PortfolioItem from "@/components/ui/portfolio-item";
+import PortfolioItemEnhanced from "@/components/ui/portfolio-item-enhanced";
 
 const portfolioItems = [
   {
@@ -182,7 +182,7 @@ export default function Portfolio() {
             className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10"
           >
             {filteredItems.map((item, index) => (
-              <PortfolioItem key={item.id} item={item} index={index} />
+              <PortfolioItemEnhanced key={item.id} item={item} index={index} />
             ))}
           </motion.div>
           
