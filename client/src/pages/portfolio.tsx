@@ -118,13 +118,62 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
+      {/* Enhanced Portfolio Grid with Premium Effects */}
       <section className="py-20 bg-gradient-to-br from-background via-muted/50 to-background relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-neon-blue/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-pink/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-neon-green/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
+        {/* Advanced background decorative elements */}
+        <div className="absolute inset-0 opacity-40">
+          <motion.div 
+            className="absolute top-20 left-10 w-72 h-72 bg-neon-blue/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.5, 0.2],
+              x: [0, 50, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-20 right-10 w-96 h-96 bg-neon-pink/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.6, 0.3],
+              x: [0, -40, 0],
+              y: [0, 20, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute top-1/2 left-1/2 w-64 h-64 bg-neon-green/20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [0.25, 0.7, 0.25],
+              rotate: [0, 180, 360]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+          />
+          
+          {/* Floating geometric shapes */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-neon-blue/30 rounded-full"
+              style={{
+                left: `${10 + i * 12}%`,
+                top: `${20 + (i % 3) * 25}%`
+              }}
+              animate={{
+                y: [-20, -60, -20],
+                opacity: [0, 1, 0],
+                scale: [0.5, 1.5, 0.5]
+              }}
+              transition={{
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.8,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
         </div>
         
         <div className="container mx-auto px-6 relative z-10">

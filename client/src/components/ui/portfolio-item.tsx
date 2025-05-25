@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Eye, ArrowUpRight, Calendar, Building } from "lucide-react";
+import { ExternalLink, Eye, ArrowUpRight, Calendar, Building, Sparkles, Zap } from "lucide-react";
 import MagneticWrapper from "./magnetic-wrapper";
 import InteractiveCursor from "./interactive-cursor";
+import HolographicCard from "./holographic-card";
+import LiquidMorph from "./liquid-morph";
 
 interface PortfolioItemProps {
   item: {
@@ -75,7 +77,21 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
         }}
       />
       
-      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-card/95 via-card to-card/90 backdrop-blur-sm border border-border/30 shadow-2xl">
+      <HolographicCard className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-card/95 via-card to-card/90 backdrop-blur-sm border border-border/30 shadow-2xl group">
+        {/* Liquid morph background effect */}
+        <LiquidMorph color={index % 3 === 0 ? "#1ae7ff" : index % 3 === 1 ? "#39ff14" : "#ff1493"} />
+        
+        {/* Animated mesh gradient overlay */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000"
+          style={{
+            background: `conic-gradient(from ${index * 45}deg, #1ae7ff, #39ff14, #ff1493, #1ae7ff)`
+          }}
+          animate={{
+            background: `conic-gradient(from ${(index * 45) + 360}deg, #1ae7ff, #39ff14, #ff1493, #1ae7ff)`
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        />
         {/* Image section with enhanced overlay */}
         <div className="relative h-72 overflow-hidden">
           <motion.img
@@ -216,13 +232,21 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
                 whileHover={{ x: 3 }}
                 transition={{ duration: 0.2 }}
               >
-                <Eye size={18} />
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                >
+                  <Sparkles size={18} />
+                </motion.div>
                 View Project Details
                 <motion.div
-                  animate={{ x: [0, 5, 0] }}
+                  animate={{ 
+                    x: [0, 5, 0],
+                    rotate: [0, 15, 0]
+                  }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <ArrowUpRight size={18} />
+                  <Zap size={18} />
                 </motion.div>
               </motion.span>
               
@@ -325,7 +349,7 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
           />
         </motion.div>
         </div>
-      </motion.div>
+      </HolographicCard>
       </MagneticWrapper>
     </InteractiveCursor>
   );
