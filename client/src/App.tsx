@@ -14,6 +14,7 @@ import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsOfService from "@/pages/terms-of-service";
 import Careers from "@/pages/careers";
 import LearnUIUXDesign from "@/pages/learn-ui-ux-design";
+import CookiePolicy from "@/pages/cookie-policy";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/careers" component={Careers} />
       <Route path="/learn-ui-ux-design" component={LearnUIUXDesign} />
+      <Route path="/cookie-policy" component={CookiePolicy} />
       <Route component={NotFound} />
     </Switch>
   );
