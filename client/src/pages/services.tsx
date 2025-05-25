@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { Code, Palette, ShoppingCart, Target, CheckCircle } from "lucide-react";
+import { Code, Palette, ShoppingCart, Target, CheckCircle, Sparkles, Zap, Rocket } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import TiltCard from "@/components/ui/tilt-card";
+import ParallaxContainer from "@/components/ui/parallax-container";
 
 const services = [
   {
@@ -129,15 +131,68 @@ export default function Services() {
                 }}
                 className="service-card group"
               >
-                {/* Enhanced glow effect */}
-                <motion.div 
-                  className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
-                  style={{
-                    background: `linear-gradient(45deg, ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.5)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.5)' : 'rgba(255,20,147,0.5)'}, transparent, ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.3)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.3)' : 'rgba(255,20,147,0.3)'})`
-                  }}
-                />
-                
-                <Card className="relative bg-gradient-to-br from-card/95 via-card to-card/90 border border-border/30 h-full hover:shadow-2xl hover:shadow-neon-blue/10 transition-all duration-500 backdrop-blur-sm rounded-3xl overflow-hidden">
+                <TiltCard intensity={8} className="h-full">
+                  {/* Multi-layered enhanced glow effect */}
+                  <motion.div 
+                    className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
+                    style={{
+                      background: `linear-gradient(45deg, ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.6)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.6)' : 'rgba(255,20,147,0.6)'}, transparent, ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.4)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.4)' : 'rgba(255,20,147,0.4)'})`
+                    }}
+                    animate={{ 
+                      rotate: [0, 360],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ 
+                      duration: 8, 
+                      repeat: Infinity, 
+                      ease: "linear"
+                    }}
+                  />
+                  <motion.div 
+                    className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-80 transition-opacity duration-500 blur-xl"
+                    style={{
+                      background: `linear-gradient(-45deg, ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.4)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.4)' : 'rgba(255,20,147,0.4)'}, transparent, ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.2)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.2)' : 'rgba(255,20,147,0.2)'})`
+                    }}
+                    animate={{ 
+                      rotate: [360, 0],
+                      scale: [1.05, 0.95, 1.05]
+                    }}
+                    transition={{ 
+                      duration: 6, 
+                      repeat: Infinity, 
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  <Card className="relative bg-gradient-to-br from-card/95 via-card to-card/90 border border-border/30 h-full hover:shadow-2xl hover:shadow-neon-blue/10 transition-all duration-500 backdrop-blur-sm rounded-3xl overflow-hidden">
+                    {/* Floating particles inside card */}
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100"
+                      transition={{ duration: 0.8 }}
+                    >
+                      {[...Array(6)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 rounded-full"
+                          style={{
+                            left: `${20 + i * 15}%`,
+                            top: `${30 + (i % 2) * 30}%`,
+                            backgroundColor: service.color === 'neon-blue' ? '#1ae7ff' : service.color === 'neon-green' ? '#39ff14' : '#ff1493'
+                          }}
+                          animate={{
+                            y: [-10, -30, -10],
+                            opacity: [0, 1, 0],
+                            scale: [0.5, 1.2, 0.5],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            delay: i * 0.5,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      ))}
+                    </motion.div>
                   <CardHeader className="pb-6">
                     <div className="flex items-start mb-8">
                       {/* Enhanced icon with animations */}
@@ -305,6 +360,7 @@ export default function Services() {
                     </motion.div>
                   </CardContent>
                 </Card>
+                </TiltCard>
               </motion.div>
             ))}
           </div>

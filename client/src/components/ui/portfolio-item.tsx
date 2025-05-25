@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Eye, ArrowUpRight, Calendar, Building } from "lucide-react";
+import MagneticWrapper from "./magnetic-wrapper";
+import InteractiveCursor from "./interactive-cursor";
 
 interface PortfolioItemProps {
   item: {
@@ -22,33 +24,53 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
   };
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 50, scale: 0.9 }}
-      whileHover={{ 
-        y: -12,
-        transition: { type: "spring", stiffness: 300, damping: 20 }
-      }}
-      transition={{ 
-        duration: 0.8, 
-        delay: index * 0.15,
-        type: "spring",
-        stiffness: 100
-      }}
-      className="portfolio-item relative group overflow-hidden rounded-3xl cursor-pointer"
-    >
-      {/* Enhanced glow effect */}
+    <InteractiveCursor glowColor="#1ae7ff">
+      <MagneticWrapper strength={0.15} className="portfolio-item">
+        <motion.div
+          layout
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 50, scale: 0.9 }}
+          whileHover={{ 
+            y: -15,
+            scale: 1.02,
+            rotateX: 5,
+            rotateY: 5,
+            transition: { type: "spring", stiffness: 300, damping: 20 }
+          }}
+          transition={{ 
+            duration: 0.8, 
+            delay: index * 0.15,
+            type: "spring",
+            stiffness: 100
+          }}
+          className="relative group overflow-hidden rounded-3xl cursor-pointer"
+          style={{ perspective: "1000px" }}
+        >
+      {/* Multi-layered enhanced glow effect */}
       <motion.div 
-        className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-neon-blue/50 via-neon-purple/50 to-neon-pink/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
+        className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-neon-blue/60 via-neon-purple/60 to-neon-pink/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
         animate={{ 
           rotate: [0, 360],
+          scale: [1, 1.05, 1]
         }}
         transition={{ 
-          duration: 8, 
+          duration: 6, 
           repeat: Infinity, 
           ease: "linear",
+          repeatType: "loop"
+        }}
+      />
+      <motion.div 
+        className="absolute -inset-1 rounded-3xl bg-gradient-to-l from-neon-pink/40 via-neon-green/40 to-neon-blue/40 opacity-0 group-hover:opacity-80 transition-opacity duration-500 blur-xl"
+        animate={{ 
+          rotate: [360, 0],
+          scale: [1.02, 0.98, 1.02]
+        }}
+        transition={{ 
+          duration: 4, 
+          repeat: Infinity, 
+          ease: "easeInOut",
           repeatType: "loop"
         }}
       />
@@ -215,19 +237,96 @@ export default function PortfolioItem({ item, index }: PortfolioItemProps) {
           </motion.div>
         </div>
         
-        {/* Decorative elements */}
+        {/* Enhanced decorative elements with animations */}
         <motion.div
-          className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100"
+          className="absolute top-0 right-0 w-40 h-40 opacity-0 group-hover:opacity-100"
           initial={{ scale: 0, rotate: -180 }}
           whileHover={{ scale: 1, rotate: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <div className="absolute top-8 right-8 w-4 h-4 bg-neon-blue rounded-full shadow-lg shadow-neon-blue/50" />
-          <div className="absolute top-4 right-16 w-2 h-2 bg-neon-green rounded-full" />
-          <div className="absolute top-16 right-4 w-2 h-2 bg-neon-pink rounded-full" />
-          <div className="absolute top-12 right-12 w-1 h-1 bg-neon-blue rounded-full" />
+          <motion.div 
+            className="absolute top-8 right-8 w-5 h-5 bg-neon-blue rounded-full shadow-lg shadow-neon-blue/50" 
+            animate={{ 
+              scale: [1, 1.3, 1],
+              boxShadow: [
+                "0 0 10px rgba(26,231,255,0.5)",
+                "0 0 20px rgba(26,231,255,0.8)",
+                "0 0 10px rgba(26,231,255,0.5)"
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute top-4 right-16 w-3 h-3 bg-neon-green rounded-full" 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360]
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
+          <motion.div 
+            className="absolute top-16 right-4 w-3 h-3 bg-neon-pink rounded-full" 
+            animate={{ 
+              scale: [1, 1.4, 1],
+              y: [0, -5, 0]
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+          <motion.div 
+            className="absolute top-12 right-12 w-2 h-2 bg-neon-blue rounded-full" 
+            animate={{ 
+              opacity: [0.5, 1, 0.5],
+              scale: [0.8, 1.2, 0.8]
+            }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          />
+          
+          {/* Additional floating geometric shapes */}
+          <motion.div
+            className="absolute top-6 right-10 w-1 h-6 bg-gradient-to-b from-neon-blue to-transparent opacity-60"
+            animate={{ 
+              scaleY: [1, 1.5, 1],
+              opacity: [0.6, 1, 0.6]
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+          />
+          <motion.div
+            className="absolute top-10 right-6 w-6 h-1 bg-gradient-to-r from-neon-green to-transparent opacity-60"
+            animate={{ 
+              scaleX: [1, 1.5, 1],
+              opacity: [0.6, 1, 0.6]
+            }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+          />
         </motion.div>
-      </div>
-    </motion.div>
+        
+        {/* Corner accent with morphing effect */}
+        <motion.div
+          className="absolute bottom-0 left-0 w-20 h-20 opacity-0 group-hover:opacity-60"
+          initial={{ scale: 0, rotate: 180 }}
+          whileHover={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <motion.div
+            className="absolute bottom-4 left-4 w-8 h-1 bg-gradient-to-r from-neon-pink to-transparent rounded-full"
+            animate={{ 
+              scaleX: [1, 1.5, 1],
+              opacity: [0.4, 0.8, 0.4]
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-2 left-8 w-1 h-8 bg-gradient-to-t from-neon-green to-transparent rounded-full"
+            animate={{ 
+              scaleY: [1, 1.3, 1],
+              opacity: [0.4, 0.8, 0.4]
+            }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
+        </motion.div>
+        </div>
+      </motion.div>
+      </MagneticWrapper>
+    </InteractiveCursor>
   );
 }
