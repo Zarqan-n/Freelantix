@@ -22,8 +22,8 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="service-card"
     >
-      <Card className="bg-card border-border h-full group hover:shadow-2xl transition-all duration-300 cursor-pointer">
-        <CardContent className="p-8 text-center h-full flex flex-col">
+      <Card className="card-premium h-full group cursor-pointer">
+        <CardContent className="p-8 text-center h-full flex flex-col relative overflow-hidden">
           <motion.div
             className={`text-5xl ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}
             whileHover={{ scale: 1.1 }}

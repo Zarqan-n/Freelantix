@@ -69,18 +69,25 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl lg:text-7xl font-black mb-6 leading-tight">
-                Building <span className="neon-blue">Cutting-Edge</span><br />
-                Digital <span className="neon-green">Experiences</span>
+              <h1 className="font-black mb-8 leading-tight tracking-tight">
+                Building <span className="text-gradient-primary">Cutting-Edge</span><br />
+                Digital <span className="text-shimmer">Experiences</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground mb-8 font-light">
-                End-to-end web, UX/UI, and eCommerce solutions for startups & SMEs
+              <p className="text-xl lg:text-2xl text-muted-foreground mb-10 font-light leading-relaxed max-w-2xl">
+                Premium digital solutions that transform businesses and accelerate growth through innovation and excellence
               </p>
-              <Link href="/contact">
-                <Button size="lg" className="btn-neon bg-neon-blue text-background hover:bg-neon-blue/90">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact">
+                  <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-8 py-6 text-lg font-semibold">
+                    Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/portfolio">
+                  <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-8 py-6 text-lg font-semibold">
+                    View Portfolio
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
             
             <motion.div
@@ -94,8 +101,11 @@ export default function Home() {
                 alt="Modern tech workspace with multiple monitors"
                 className="rounded-2xl shadow-2xl animate-float"
               />
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-br from-neon-pink to-neon-blue rounded-full opacity-20 animate-glow"></div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-tr from-neon-green to-neon-blue rounded-full opacity-20 animate-glow" style={{animationDelay: '1s'}}></div>
+              <div className="absolute -top-6 -right-6 w-40 h-40 gradient-secondary rounded-full opacity-20 animate-glow blur-xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 gradient-tertiary rounded-full opacity-20 animate-glow blur-xl" style={{animationDelay: '1s'}}></div>
+              <div className="premium-border absolute inset-0 rounded-2xl opacity-30">
+                <div className="premium-border-content w-full h-full rounded-2xl"></div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -110,10 +120,10 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Our <span className="neon-blue">Services</span>
+            <h2 className="font-bold mb-6">
+              Our <span className="text-gradient-primary">Premium Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Empowering businesses with innovative digital solutions that drive growth and success
             </p>
           </motion.div>
