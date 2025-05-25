@@ -74,19 +74,6 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="relative"
             >
-              {/* Premium badge */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="inline-flex items-center gap-2 premium-border rounded-full p-1 mb-8"
-              >
-                <div className="premium-border-content rounded-full px-6 py-3 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-gradient-primary">Elite Digital Agency</span>
-                </div>
-              </motion.div>
-
               <motion.h1 
                 className="font-black mb-10 leading-[0.9] tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
