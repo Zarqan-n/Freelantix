@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 11% 4%; /* #0a0a0a */
+  --foreground: 0 0% 100%; /* #ffffff */
+  --muted: 210 11% 11%; /* #1a1a1a */
+  --muted-foreground: 0 0% 70%; /* #b3b3b3 */
+  --popover: 210 11% 11%; /* #1a1a1a */
+  --popover-foreground: 0 0% 100%; /* #ffffff */
+  --card: 210 11% 11%; /* #1a1a1a */
+  --card-foreground: 0 0% 100%; /* #ffffff */
+  --border: 210 11% 20%; /* #333333 */
+  --input: 210 11% 15%; /* #262626 */
+  --primary: 195 100% 50%; /* #00d9ff */
+  --primary-foreground: 210 11% 4%; /* #0a0a0a */
+  --secondary: 210 11% 15%; /* #262626 */
+  --secondary-foreground: 0 0% 100%; /* #ffffff */
+  --accent: 210 11% 15%; /* #262626 */
+  --accent-foreground: 0 0% 100%; /* #ffffff */
+  --destructive: 0 84% 60%; /* #f56565 */
+  --destructive-foreground: 0 0% 100%; /* #ffffff */
+  --ring: 195 100% 50%; /* #00d9ff */
+  --radius: 0.5rem;
+  
+  /* Custom neon colors */
+  --neon-blue: 195 100% 50%; /* #00d9ff */
+  --neon-green: 120 100% 54%; /* #39ff14 */
+  --neon-pink: 328 100% 54%; /* #ff1493 */
+}
+
+.dark {
+  --background: 210 11% 4%; /* #0a0a0a */
+  --foreground: 0 0% 100%; /* #ffffff */
+  --muted: 210 11% 11%; /* #1a1a1a */
+  --muted-foreground: 0 0% 70%; /* #b3b3b3 */
+  --popover: 210 11% 11%; /* #1a1a1a */
+  --popover-foreground: 0 0% 100%; /* #ffffff */
+  --card: 210 11% 11%; /* #1a1a1a */
+  --card-foreground: 0 0% 100%; /* #ffffff */
+  --border: 210 11% 20%; /* #333333 */
+  --input: 210 11% 15%; /* #262626 */
+  --primary: 195 100% 50%; /* #00d9ff */
+  --primary-foreground: 210 11% 4%; /* #0a0a0a */
+  --secondary: 210 11% 15%; /* #262626 */
+  --secondary-foreground: 0 0% 100%; /* #ffffff */
+  --accent: 210 11% 15%; /* #262626 */
+  --accent-foreground: 0 0% 100%; /* #ffffff */
+  --destructive: 0 84% 60%; /* #f56565 */
+  --destructive-foreground: 0 0% 100%; /* #ffffff */
+  --ring: 195 100% 50%; /* #00d9ff */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  .neon-blue {
+    color: hsl(var(--neon-blue));
+  }
+  
+  .neon-green {
+    color: hsl(var(--neon-green));
+  }
+  
+  .neon-pink {
+    color: hsl(var(--neon-pink));
+  }
+  
+  .bg-neon-blue {
+    background-color: hsl(var(--neon-blue));
+  }
+  
+  .bg-neon-green {
+    background-color: hsl(var(--neon-green));
+  }
+  
+  .bg-neon-pink {
+    background-color: hsl(var(--neon-pink));
+  }
+  
+  .border-neon-blue {
+    border-color: hsl(var(--neon-blue));
+  }
+  
+  .border-neon-green {
+    border-color: hsl(var(--neon-green));
+  }
+  
+  .border-neon-pink {
+    border-color: hsl(var(--neon-pink));
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px hsl(var(--neon-blue)); }
+    100% { box-shadow: 0 0 30px hsl(var(--neon-blue)), 0 0 40px hsl(var(--neon-blue)); }
+  }
+
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .btn-neon:hover {
+    box-shadow: 0 0 30px currentColor;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .portfolio-item:hover .overlay {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 50%, hsl(var(--background)) 100%);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.15) 0%, hsl(var(--neon-green) / 0.1) 50%, hsl(var(--neon-pink) / 0.1) 100%);
+  }
+
+  .neon-border {
+    border: 1px solid;
+    border-image: linear-gradient(45deg, hsl(var(--neon-blue)), hsl(var(--neon-green)), hsl(var(--neon-pink))) 1;
+  }
+}
