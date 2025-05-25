@@ -17,10 +17,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-effect border-b border-border/10 backdrop-blur-xl">
+    <header className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-sm">
       <nav className="container mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
-          {/* Enhanced Logo */}
+          {/* Clean Logo */}
           <Link href="/">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -28,13 +28,11 @@ export default function Header() {
               transition={{ duration: 0.5 }}
               className="relative group cursor-pointer"
             >
-              <div className="premium-border rounded-xl p-1">
-                <div className="premium-border-content rounded-xl px-6 py-3 flex items-center gap-3">
-                  <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                    <span className="text-background font-black text-sm">FX</span>
-                  </div>
-                  <span className="text-xl font-black text-gradient-primary">Freelantix</span>
+              <div className="flex items-center gap-3 px-2 py-1">
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <span className="text-background font-black text-sm">FX</span>
                 </div>
+                <span className="text-xl font-black text-gradient-primary">Freelantix</span>
               </div>
             </motion.div>
           </Link>
@@ -53,8 +51,8 @@ export default function Header() {
                   <div
                     className={`relative px-6 py-3 rounded-xl cursor-pointer transition-all duration-300 group ${
                       location === item.href
-                        ? "glass-effect border border-neon-blue/30"
-                        : "hover:glass-effect hover:border hover:border-border/20"
+                        ? "bg-white/5"
+                        : "hover:bg-white/5"
                     }`}
                   >
                     <span
@@ -99,7 +97,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden glass-effect border border-border/20 p-3"
+            className="lg:hidden bg-white/5 p-3"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <motion.div
