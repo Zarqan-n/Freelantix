@@ -145,8 +145,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Transforming Ideas into <span className="neon-green">Profits</span>
+            <h2 className="font-bold mb-6">
+              Transforming Ideas into <span className="text-gradient-secondary">Success</span>
             </h2>
           </motion.div>
           
@@ -167,8 +167,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              What Our <span className="neon-blue">Clients Say</span>
+            <h2 className="font-bold mb-6">
+              What Our <span className="text-gradient-primary">Clients Say</span>
             </h2>
           </motion.div>
           
@@ -180,7 +180,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card className="bg-card border-border">
+                <Card className="card-premium">
                   <CardContent className="p-8">
                     <div className="flex items-center mb-6">
                       <div className="text-3xl neon-blue mr-4">
@@ -222,20 +222,20 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Ready to Elevate Your <span className="neon-blue">Business Online?</span>
+            <h2 className="font-bold mb-6">
+              Ready to Elevate Your <span className="text-gradient-primary">Business Online?</span>
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto text-muted-foreground">
               Join the hundreds of businesses that have transformed their digital presence with Freelantix. Let's create something amazing together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="btn-neon bg-neon-pink text-background hover:bg-neon-pink/90">
+                <Button size="lg" className="btn-premium gradient-secondary text-background hover:shadow-2xl px-8 py-4 text-lg font-semibold">
                   Start Your Project
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background">
+                <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-8 py-4 text-lg font-semibold">
                   Schedule Consultation
                 </Button>
               </Link>
