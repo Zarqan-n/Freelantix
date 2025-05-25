@@ -153,53 +153,131 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
               className="relative"
             >
-              {/* Premium container with multiple layers */}
+              {/* Premium Visual Dashboard */}
               <div className="relative group">
-                {/* Background blur effects */}
-                <div className="absolute -inset-8 gradient-primary rounded-3xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-700"></div>
-                <div className="absolute -inset-4 gradient-secondary rounded-2xl opacity-15 blur-xl group-hover:opacity-25 transition-opacity duration-700"></div>
+                {/* Ambient background effects */}
+                <div className="absolute -inset-12 gradient-primary rounded-3xl opacity-10 blur-3xl group-hover:opacity-15 transition-all duration-1000"></div>
+                <div className="absolute -inset-8 gradient-secondary rounded-2xl opacity-8 blur-2xl group-hover:opacity-12 transition-all duration-1000"></div>
                 
-                {/* Main image container */}
-                <div className="relative premium-border rounded-3xl p-2 group-hover:scale-[1.02] transition-transform duration-700">
-                  <div className="premium-border-content rounded-3xl overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&crop=center" 
-                      alt="Modern tech workspace with multiple monitors"
-                      className="w-full h-auto rounded-2xl animate-float"
-                    />
+                {/* Main premium dashboard container */}
+                <div className="relative premium-border rounded-3xl p-3 group-hover:scale-[1.02] transition-transform duration-700">
+                  <div className="premium-border-content rounded-3xl p-12 min-h-[500px] flex flex-col justify-center items-center">
                     
-                    {/* Overlay effects */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/5 rounded-2xl"></div>
+                    {/* Central logo/brand element */}
+                    <motion.div
+                      className="relative mb-16"
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    >
+                      <div className="w-32 h-32 premium-border rounded-full p-1">
+                        <div className="premium-border-content rounded-full w-full h-full flex items-center justify-center">
+                          <div className="text-4xl font-black text-gradient-primary">FX</div>
+                        </div>
+                      </div>
+                    </motion.div>
+                    
+                    {/* Floating metrics cards */}
+                    <div className="grid grid-cols-2 gap-6 w-full max-w-md">
+                      <motion.div
+                        className="glass-effect rounded-xl p-6 text-center"
+                        animate={{ y: [-5, 5, -5] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <div className="text-2xl font-bold text-gradient-primary mb-2">99.9%</div>
+                        <div className="text-sm text-muted-foreground">Uptime</div>
+                      </motion.div>
+                      
+                      <motion.div
+                        className="glass-effect rounded-xl p-6 text-center"
+                        animate={{ y: [5, -5, 5] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                      >
+                        <div className="text-2xl font-bold text-gradient-secondary mb-2">2.5s</div>
+                        <div className="text-sm text-muted-foreground">Load Time</div>
+                      </motion.div>
+                      
+                      <motion.div
+                        className="glass-effect rounded-xl p-6 text-center"
+                        animate={{ y: [-3, 7, -3] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                      >
+                        <div className="text-2xl font-bold neon-green mb-2">A+</div>
+                        <div className="text-sm text-muted-foreground">Security</div>
+                      </motion.div>
+                      
+                      <motion.div
+                        className="glass-effect rounded-xl p-6 text-center"
+                        animate={{ y: [7, -3, 7] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                      >
+                        <div className="text-2xl font-bold neon-pink mb-2">24/7</div>
+                        <div className="text-sm text-muted-foreground">Support</div>
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Floating elements */}
+                {/* Elegant floating technology icons */}
                 <motion.div
-                  className="absolute -top-8 -right-8 w-24 h-24 glass-effect rounded-2xl flex items-center justify-center"
-                  animate={{ y: [-10, 10, -10] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-8 -right-8 w-20 h-20 glass-effect rounded-2xl flex items-center justify-center"
+                  animate={{ 
+                    y: [-8, 8, -8],
+                    rotate: [0, 180, 360]
+                  }}
+                  transition={{ 
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+                  }}
                 >
-                  <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center">
-                    <span className="text-background font-bold text-lg">AI</span>
+                  <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
+                    <span className="text-background font-bold text-sm">AI</span>
                   </div>
                 </motion.div>
                 
                 <motion.div
-                  className="absolute -bottom-6 -left-6 w-20 h-20 glass-effect rounded-xl flex items-center justify-center"
-                  animate={{ y: [10, -10, 10] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute -bottom-6 -left-6 w-16 h-16 glass-effect rounded-2xl flex items-center justify-center"
+                  animate={{ 
+                    y: [8, -8, 8],
+                    rotate: [360, 180, 0]
+                  }}
+                  transition={{ 
+                    y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                    rotate: { duration: 15, repeat: Infinity, ease: "linear" }
+                  }}
                 >
-                  <div className="w-10 h-10 gradient-secondary rounded-lg flex items-center justify-center">
-                    <span className="text-background font-bold">⚡</span>
+                  <div className="w-8 h-8 gradient-secondary rounded-lg flex items-center justify-center">
+                    <span className="text-background font-bold text-xs">⚡</span>
                   </div>
                 </motion.div>
                 
                 <motion.div
-                  className="absolute top-1/2 -right-4 w-16 h-16 glass-effect rounded-full flex items-center justify-center"
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                  className="absolute top-1/3 -right-4 w-12 h-12 glass-effect rounded-full flex items-center justify-center"
+                  animate={{ 
+                    x: [0, 8, 0],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    x: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 },
+                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                  }}
                 >
-                  <div className="w-8 h-8 gradient-tertiary rounded-full"></div>
+                  <div className="w-6 h-6 gradient-tertiary rounded-full"></div>
+                </motion.div>
+                
+                <motion.div
+                  className="absolute bottom-1/3 -left-4 w-14 h-14 glass-effect rounded-xl flex items-center justify-center"
+                  animate={{ 
+                    x: [0, -6, 0],
+                    opacity: [0.7, 1, 0.7]
+                  }}
+                  transition={{ 
+                    x: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 },
+                    opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                  }}
+                >
+                  <div className="w-7 h-7 bg-neon-purple/30 rounded-lg flex items-center justify-center">
+                    <span className="text-neon-purple font-bold text-xs">◆</span>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
