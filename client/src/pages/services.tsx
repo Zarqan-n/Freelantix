@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import TiltCard from "@/components/ui/tilt-card";
 import ParallaxContainer from "@/components/ui/parallax-container";
+import { Link } from "wouter";
 
 const services = [
   {
@@ -327,36 +328,71 @@ export default function Services() {
                       transition={{ duration: 0.6, delay: 0.5 }}
                       className="pt-4"
                     >
-                      <motion.button
-                        className={`group/btn relative overflow-hidden w-full px-6 py-4 bg-gradient-to-r from-${service.color}/20 to-${service.color}/10 backdrop-blur-sm rounded-2xl font-semibold border border-${service.color}/30 hover:border-${service.color}/60 transition-all duration-500 shadow-lg`}
-                        whileHover={{ 
-                          scale: 1.02,
-                          boxShadow: `0 15px 35px ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.2)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.2)' : 'rgba(255,20,147,0.2)'}`
-                        }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <motion.span
-                          className={`relative z-10 flex items-center justify-center gap-2 text-${service.color} group-hover/btn:text-foreground transition-colors duration-300`}
-                          whileHover={{ x: 2 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          Learn More About {service.title}
-                          <motion.div
-                            animate={{ x: [0, 4, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      {service.title === "UI/UX Design" ? (
+                        <Link href="/learn-ui-ux-design">
+                          <motion.button
+                            className={`group/btn relative overflow-hidden w-full px-6 py-4 bg-gradient-to-r from-${service.color}/20 to-${service.color}/10 backdrop-blur-sm rounded-2xl font-semibold border border-${service.color}/30 hover:border-${service.color}/60 transition-all duration-500 shadow-lg`}
+                            whileHover={{ 
+                              scale: 1.02,
+                              boxShadow: `0 15px 35px ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.2)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.2)' : 'rgba(255,20,147,0.2)'}`
+                            }}
+                            whileTap={{ scale: 0.98 }}
                           >
-                            →
-                          </motion.div>
-                        </motion.span>
-                        
-                        {/* Button background animation */}
-                        <motion.div
-                          className={`absolute inset-0 bg-gradient-to-r from-${service.color}/30 to-${service.color}/20 opacity-0 group-hover/btn:opacity-100 rounded-2xl`}
-                          initial={{ x: "-100%" }}
-                          whileHover={{ x: "0%" }}
-                          transition={{ duration: 0.5 }}
-                        />
-                      </motion.button>
+                            <motion.span
+                              className={`relative z-10 flex items-center justify-center gap-2 text-${service.color} group-hover/btn:text-foreground transition-colors duration-300`}
+                              whileHover={{ x: 2 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              Learn UI/UX Design
+                              <motion.div
+                                animate={{ x: [0, 4, 0] }}
+                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                              >
+                                📚
+                              </motion.div>
+                            </motion.span>
+                            
+                            {/* Button background animation */}
+                            <motion.div
+                              className={`absolute inset-0 bg-gradient-to-r from-${service.color}/30 to-${service.color}/20 opacity-0 group-hover/btn:opacity-100 rounded-2xl`}
+                              initial={{ x: "-100%" }}
+                              whileHover={{ x: "0%" }}
+                              transition={{ duration: 0.5 }}
+                            />
+                          </motion.button>
+                        </Link>
+                      ) : (
+                        <motion.button
+                          className={`group/btn relative overflow-hidden w-full px-6 py-4 bg-gradient-to-r from-${service.color}/20 to-${service.color}/10 backdrop-blur-sm rounded-2xl font-semibold border border-${service.color}/30 hover:border-${service.color}/60 transition-all duration-500 shadow-lg`}
+                          whileHover={{ 
+                            scale: 1.02,
+                            boxShadow: `0 15px 35px ${service.color === 'neon-blue' ? 'rgba(26,231,255,0.2)' : service.color === 'neon-green' ? 'rgba(57,255,20,0.2)' : 'rgba(255,20,147,0.2)'}`
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <motion.span
+                            className={`relative z-10 flex items-center justify-center gap-2 text-${service.color} group-hover/btn:text-foreground transition-colors duration-300`}
+                            whileHover={{ x: 2 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            Learn More About {service.title}
+                            <motion.div
+                              animate={{ x: [0, 4, 0] }}
+                              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                              →
+                            </motion.div>
+                          </motion.span>
+                          
+                          {/* Button background animation */}
+                          <motion.div
+                            className={`absolute inset-0 bg-gradient-to-r from-${service.color}/30 to-${service.color}/20 opacity-0 group-hover/btn:opacity-100 rounded-2xl`}
+                            initial={{ x: "-100%" }}
+                            whileHover={{ x: "0%" }}
+                            transition={{ duration: 0.5 }}
+                          />
+                        </motion.button>
+                      )}
                     </motion.div>
                   </CardContent>
                   </Card>
