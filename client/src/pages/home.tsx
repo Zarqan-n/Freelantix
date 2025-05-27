@@ -5,6 +5,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import AnimatedBackground from "@/components/ui/animated-background";
 import ServiceCard from "@/components/ui/service-card";
 import StatsCounter from "@/components/ui/stats-counter";
+import MagneticButton from "@/components/ui/magnetic-button";
+import ParticleSystem from "@/components/ui/particle-system";
+import MorphingCard from "@/components/ui/morphing-card";
+import AdvancedBackground from "@/components/ui/advanced-background";
 import { Link } from "wouter";
 
 const services = [
@@ -119,6 +123,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative overflow-hidden">
         <AnimatedBackground />
+        <AdvancedBackground variant="constellation" />
+        <ParticleSystem particleCount={40} />
         
         {/* Premium floating elements */}
         <div className="absolute top-1/4 left-1/3 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
@@ -158,15 +164,19 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <Link href="/contact">
-                  <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
-                    Get Started 
-                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
+                  <MagneticButton strength={0.3}>
+                    <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
+                      Get Started 
+                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </MagneticButton>
                 </Link>
                 <Link href="/portfolio">
-                  <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-10 py-6 text-lg font-semibold">
-                    View Portfolio
-                  </Button>
+                  <MagneticButton strength={0.2}>
+                    <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-10 py-6 text-lg font-semibold">
+                      View Portfolio
+                    </Button>
+                  </MagneticButton>
                 </Link>
               </motion.div>
               
@@ -406,6 +416,9 @@ export default function Home() {
 
       {/* Revenue Impact Section */}
       <section className="py-40 relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background">
+        <AdvancedBackground variant="mesh" />
+        <ParticleSystem particleCount={25} />
+        
         {/* Premium background effects */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/6 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
@@ -484,30 +497,49 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="card-premium p-8 h-full text-center relative overflow-hidden">
-                  {/* Ambient glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-${feature.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 mx-auto mb-6 premium-border rounded-2xl p-1 group-hover:scale-110 transition-transform duration-300`}>
-                      <div className="premium-border-content rounded-2xl w-full h-full flex items-center justify-center">
-                        <feature.icon className={`w-8 h-8 text-${feature.color}`} />
-                      </div>
+                <MorphingCard morphOnHover={true}>
+                  <div className="card-premium p-8 h-full text-center relative overflow-hidden">
+                    {/* Ambient glow effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-${feature.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                    
+                    <div className="relative z-10">
+                      <motion.div 
+                        className={`w-16 h-16 mx-auto mb-6 premium-border rounded-2xl p-1`}
+                        whileHover={{ 
+                          scale: 1.1,
+                          rotate: [0, -10, 10, 0],
+                        }}
+                        transition={{ 
+                          rotate: { duration: 0.6, ease: "easeInOut" },
+                          scale: { duration: 0.3 }
+                        }}
+                      >
+                        <div className="premium-border-content rounded-2xl w-full h-full flex items-center justify-center">
+                          <feature.icon className={`w-8 h-8 text-${feature.color}`} />
+                        </div>
+                      </motion.div>
+                      
+                      <motion.div 
+                        className={`text-4xl font-black text-${feature.color} mb-2`}
+                        whileHover={{ 
+                          scale: 1.05,
+                          textShadow: "0 0 20px currentColor"
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        +{feature.percentage}
+                      </motion.div>
+                      
+                      <h3 className="text-xl font-bold mb-4 text-foreground">
+                        {feature.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
                     </div>
-                    
-                    <div className={`text-4xl font-black text-${feature.color} mb-2 group-hover:scale-105 transition-transform duration-300`}>
-                      +{feature.percentage}
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-4 text-foreground">
-                      {feature.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
                   </div>
-                </div>
+                </MorphingCard>
               </motion.div>
             ))}
           </div>
@@ -582,28 +614,49 @@ export default function Home() {
               >
                 {/* Connection line */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-neon-blue to-neon-green opacity-30 z-0"></div>
+                  <motion.div 
+                    className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-neon-blue to-neon-green opacity-30 z-0"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                  />
                 )}
                 
-                <div className="glass-effect rounded-2xl p-8 text-center relative z-10 h-full group-hover:scale-105 transition-transform duration-300">
-                  <div className="w-16 h-16 mx-auto mb-6 premium-border rounded-full p-1">
-                    <div className="premium-border-content rounded-full w-full h-full flex items-center justify-center">
-                      <step.icon className="w-8 h-8 text-neon-blue" />
-                    </div>
+                <MorphingCard>
+                  <div className="glass-effect rounded-2xl p-8 text-center relative z-10 h-full">
+                    <motion.div 
+                      className="w-16 h-16 mx-auto mb-6 premium-border rounded-full p-1"
+                      whileHover={{ 
+                        rotate: 360,
+                        scale: 1.1 
+                      }}
+                      transition={{ 
+                        rotate: { duration: 0.8, ease: "easeInOut" },
+                        scale: { duration: 0.3 }
+                      }}
+                    >
+                      <div className="premium-border-content rounded-full w-full h-full flex items-center justify-center">
+                        <step.icon className="w-8 h-8 text-neon-blue" />
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      className="text-lg font-black text-gradient-primary mb-2"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {step.step}
+                    </motion.div>
+                    
+                    <h4 className="text-xl font-bold mb-4 text-foreground">
+                      {step.title}
+                    </h4>
+                    
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  
-                  <div className="text-lg font-black text-gradient-primary mb-2">
-                    {step.step}
-                  </div>
-                  
-                  <h4 className="text-xl font-bold mb-4 text-foreground">
-                    {step.title}
-                  </h4>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                </MorphingCard>
               </motion.div>
             ))}
           </div>
@@ -623,15 +676,19 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
-                  Start Your Revenue Growth
-                  <TrendingUp className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
+                <MagneticButton strength={0.4}>
+                  <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
+                    Start Your Revenue Growth
+                    <TrendingUp className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                </MagneticButton>
               </Link>
               <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-10 py-6 text-lg font-semibold">
-                  View Success Stories
-                </Button>
+                <MagneticButton strength={0.3}>
+                  <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-10 py-6 text-lg font-semibold">
+                    View Success Stories
+                  </Button>
+                </MagneticButton>
               </Link>
             </div>
           </motion.div>
