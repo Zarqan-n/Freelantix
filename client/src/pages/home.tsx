@@ -120,241 +120,85 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section - Ultra-responsive with device-optimized animations */}
+      {/* Hero Section */}
       <section className="min-h-screen flex items-center relative overflow-hidden">
         <AnimatedBackground />
         <AdvancedBackground variant="constellation" />
         <ParticleSystem particleCount={40} />
         
-        {/* Ultra-responsive floating elements */}
-        <motion.div 
-          className="absolute top-1/4 left-[5%] xs:left-[10%] sm:left-1/4 lg:left-1/3 w-48 h-48 xs:w-56 xs:h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 gradient-primary rounded-full opacity-20 xs:opacity-30 sm:opacity-40 lg:opacity-50 blur-2xl sm:blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ 
-            duration: 6, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-[5%] xs:right-[10%] sm:right-1/4 lg:right-1/3 w-40 h-40 xs:w-48 xs:h-48 sm:w-72 sm:h-72 lg:w-80 lg:h-80 gradient-secondary rounded-full opacity-20 xs:opacity-30 sm:opacity-40 lg:opacity-50 blur-2xl sm:blur-3xl"
-          animate={{ 
-            scale: [1.1, 1, 1.1],
-            opacity: [0.4, 0.2, 0.4]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
+        {/* Premium floating elements */}
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
         
-        {/* Responsive floating accent elements */}
-        <motion.div
-          className="absolute top-16 xs:top-20 right-12 xs:right-16 sm:right-20 w-2 h-2 xs:w-3 xs:h-3 sm:w-4 sm:h-4 bg-neon-blue rounded-full opacity-40 xs:opacity-50 sm:opacity-60"
-          animate={{
-            y: [-15, 15, -15],
-            x: [-8, 8, -8],
-            opacity: [0.3, 0.7, 0.3]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-24 xs:bottom-28 sm:bottom-32 left-8 xs:left-12 sm:left-16 w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 bg-neon-pink rounded-full opacity-30 xs:opacity-40 sm:opacity-50"
-          animate={{
-            y: [12, -12, 12],
-            x: [8, -8, 8],
-            opacity: [0.2, 0.6, 0.2]
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
-        
-        <div className="container mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 py-16 xs:py-20 sm:py-24 lg:py-32 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+        <div className="container mx-auto px-6 py-32 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative text-center lg:text-left"
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative"
             >
-              {/* Ultra-responsive hero title optimized for all devices */}
               <motion.h1 
-                className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black mb-6 xs:mb-8 sm:mb-10 leading-[0.9] xs:leading-[0.9] sm:leading-[0.9] tracking-tight"
+                className="font-black mb-10 leading-[0.9] tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+                transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
               >
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  Building{" "}
-                </motion.span>
-                <motion.span 
-                  className="text-gradient-primary"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.7, ease: "backOut" }}
-                >
-                  Cutting-Edge
-                </motion.span>
-                <br />
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                >
-                  Digital{" "}
-                </motion.span>
-                <motion.span 
-                  className="text-shimmer relative"
-                  initial={{ opacity: 0, rotateX: -90 }}
-                  animate={{ opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 1, delay: 1.1, ease: "backOut" }}
-                >
-                  Experiences
-                  {/* Glowing underline effect */}
-                  <motion.div
-                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-neon-blue via-neon-pink to-neon-green rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 1.5, delay: 1.5, ease: "easeOut" }}
-                  />
-                </motion.span>
+                Building <span className="text-gradient-primary">Cutting-Edge</span><br />
+                Digital <span className="text-shimmer">Experiences</span>
               </motion.h1>
               
-              {/* Ultra-responsive description text */}
               <motion.p 
-                className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground mb-8 xs:mb-10 sm:mb-12 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0 px-2 xs:px-0"
+                className="text-xl lg:text-2xl text-muted-foreground mb-12 font-light leading-relaxed max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1.3 }}
-                >
-                  Premium digital solutions that transform businesses and accelerate growth through{" "}
-                </motion.span>
-                <motion.span 
-                  className="text-gradient-secondary font-medium"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.6 }}
-                >
-                  innovation and excellence
-                </motion.span>
+                Premium digital solutions that transform businesses and accelerate growth through innovation and excellence
               </motion.p>
               
-              {/* Ultra-responsive CTA buttons */}
               <motion.div 
-                className="flex flex-col xs:flex-row gap-3 xs:gap-4 sm:gap-6 justify-center lg:justify-start w-full max-w-md xs:max-w-none mx-auto lg:mx-0"
-                initial={{ opacity: 0, y: 30 }}
+                className="flex flex-col sm:flex-row gap-6"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1.8 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="flex-1 xs:flex-none"
-                >
-                  <Link href="/contact">
-                    <MagneticButton strength={0.3}>
-                      <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-6 text-sm xs:text-base sm:text-lg font-semibold group w-full xs:w-auto min-w-[140px] xs:min-w-[160px]">
-                        Get Started 
-                        <motion.div
-                          animate={{ x: [0, 3, 0] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                          <ArrowRight className="ml-2 xs:ml-3 h-4 xs:h-5 w-4 xs:w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                        </motion.div>
-                      </Button>
-                    </MagneticButton>
-                  </Link>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="flex-1 xs:flex-none"
-                >
-                  <Link href="/portfolio">
-                    <MagneticButton strength={0.2}>
-                      <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-6 text-sm xs:text-base sm:text-lg font-semibold w-full xs:w-auto min-w-[140px] xs:min-w-[160px]">
-                        View Portfolio
-                      </Button>
-                    </MagneticButton>
-                  </Link>
-                </motion.div>
+                <Link href="/contact">
+                  <MagneticButton strength={0.3}>
+                    <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
+                      Get Started 
+                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </MagneticButton>
+                </Link>
+                <Link href="/portfolio">
+                  <MagneticButton strength={0.2}>
+                    <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-10 py-6 text-lg font-semibold">
+                      View Portfolio
+                    </Button>
+                  </MagneticButton>
+                </Link>
               </motion.div>
               
-              {/* Ultra-responsive stats section */}
+              {/* Premium stats preview */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 2.2 }}
-                className="flex flex-col xs:flex-row items-center justify-center lg:justify-start gap-4 xs:gap-6 sm:gap-8 mt-10 xs:mt-12 sm:mt-16 pt-6 xs:pt-8 border-t border-border/20 w-full max-w-md xs:max-w-none mx-auto lg:mx-0"
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="flex items-center gap-8 mt-16 pt-8 border-t border-border/20"
               >
-                {[
-                  { value: "150+", label: "Projects Delivered", gradient: "text-gradient-primary", delay: 0 },
-                  { value: "98%", label: "Client Satisfaction", gradient: "text-gradient-secondary", delay: 0.2 },
-                  { value: "24/7", label: "Support", gradient: "text-neon-green", delay: 0.4 }
-                ].map((stat, index) => (
-                  <motion.div 
-                    key={stat.label}
-                    className="text-center flex-1 xs:flex-none xs:min-w-[100px] sm:min-w-[120px]"
-                    initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: 2.4 + stat.delay,
-                      type: "spring",
-                      stiffness: 200
-                    }}
-                    whileHover={{ 
-                      scale: 1.1,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    <motion.div 
-                      className={`text-lg xs:text-xl sm:text-2xl md:text-2xl font-bold ${stat.gradient} mb-1`}
-                      animate={{
-                        textShadow: [
-                          "0 0 8px rgba(26, 231, 255, 0.4)",
-                          "0 0 16px rgba(26, 231, 255, 0.7)",
-                          "0 0 8px rgba(26, 231, 255, 0.4)"
-                        ]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.5
-                      }}
-                    >
-                      {stat.value}
-                    </motion.div>
-                    <div className="text-xs xs:text-xs sm:text-sm text-muted-foreground font-medium px-1">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gradient-primary">150+</div>
+                  <div className="text-sm text-muted-foreground">Projects Delivered</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gradient-secondary">98%</div>
+                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold neon-green">24/7</div>
+                  <div className="text-sm text-muted-foreground">Support</div>
+                </div>
               </motion.div>
             </motion.div>
             
