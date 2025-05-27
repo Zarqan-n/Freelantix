@@ -216,59 +216,338 @@ export default function Home() {
                 
                 {/* Main premium dashboard container */}
                 <div className="relative premium-border rounded-3xl p-3 group-hover:scale-[1.02] transition-transform duration-700">
-                  <div className="premium-border-content rounded-3xl p-12 min-h-[500px] flex flex-col justify-center items-center">
+                  <div className="premium-border-content rounded-3xl p-12 min-h-[600px] flex flex-col justify-center items-center relative overflow-hidden">
                     
-                    {/* Central logo/brand element */}
+                    {/* Revolutionary Holographic Central Hub */}
                     <motion.div
-                      className="relative mb-16"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                      className="relative mb-20 perspective-1000"
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
                     >
-                      <div className="w-32 h-32 premium-border rounded-full p-1">
-                        <div className="premium-border-content rounded-full w-full h-full flex items-center justify-center">
-                          <div className="text-4xl font-black text-gradient-primary">FX</div>
+                      {/* Multi-layered rotating rings */}
+                      <motion.div
+                        className="absolute inset-0 w-48 h-48 -m-8"
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                      >
+                        <div className="w-full h-full border-2 border-neon-blue/30 rounded-full"></div>
+                      </motion.div>
+                      
+                      <motion.div
+                        className="absolute inset-0 w-40 h-40 -m-4"
+                        animate={{ rotate: [360, 0] }}
+                        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                      >
+                        <div className="w-full h-full border border-neon-pink/40 rounded-full border-dashed"></div>
+                      </motion.div>
+                      
+                      <motion.div
+                        className="absolute inset-0 w-36 h-36 -m-2"
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                      >
+                        <div className="w-full h-full border border-neon-green/30 rounded-full"></div>
+                      </motion.div>
+                      
+                      {/* Central holographic logo */}
+                      <motion.div 
+                        className="relative w-32 h-32 premium-border rounded-full p-1 preserve-3d"
+                        animate={{ 
+                          rotateY: [0, 360],
+                          scale: [1, 1.05, 1]
+                        }}
+                        transition={{ 
+                          rotateY: { duration: 20, repeat: Infinity, ease: "linear" },
+                          scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                        }}
+                        whileHover={{ 
+                          scale: 1.1,
+                          rotateX: 15,
+                          rotateY: 15,
+                          transition: { duration: 0.3 }
+                        }}
+                      >
+                        <div className="premium-border-content rounded-full w-full h-full flex items-center justify-center relative">
+                          {/* Holographic background effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-br from-neon-blue/20 via-neon-pink/20 to-neon-green/20 rounded-full blur-sm"
+                            animate={{
+                              opacity: [0.5, 1, 0.5],
+                              scale: [0.8, 1.2, 0.8]
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                          />
+                          
+                          {/* Logo with holographic effect */}
+                          <motion.div 
+                            className="text-5xl font-black relative z-10"
+                            style={{
+                              background: 'linear-gradient(45deg, #1ae7ff, #ff6b9d, #00ff88, #c471ed)',
+                              backgroundSize: '400% 400%',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              filter: 'drop-shadow(0 0 20px rgba(26, 231, 255, 0.5))'
+                            }}
+                            animate={{
+                              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                            }}
+                            transition={{
+                              duration: 5,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                          >
+                            FX
+                          </motion.div>
+                          
+                          {/* Particle burst effect */}
+                          {[...Array(8)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="absolute w-1 h-1 bg-neon-blue rounded-full"
+                              style={{
+                                left: '50%',
+                                top: '50%',
+                                transformOrigin: '0 0'
+                              }}
+                              animate={{
+                                x: [0, Math.cos(i * Math.PI / 4) * 60],
+                                y: [0, Math.sin(i * Math.PI / 4) * 60],
+                                opacity: [1, 0],
+                                scale: [0, 1, 0]
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: i * 0.2,
+                                ease: "easeOut"
+                              }}
+                            />
+                          ))}
                         </div>
-                      </div>
+                      </motion.div>
+                      
+                      {/* Orbiting data points */}
+                      {[...Array(6)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-3 h-3 bg-gradient-to-br from-neon-blue to-neon-pink rounded-full"
+                          style={{
+                            left: '50%',
+                            top: '50%',
+                            marginLeft: '-6px',
+                            marginTop: '-6px'
+                          }}
+                          animate={{
+                            x: [
+                              Math.cos(i * Math.PI / 3) * 100,
+                              Math.cos((i * Math.PI / 3) + (2 * Math.PI)) * 100
+                            ],
+                            y: [
+                              Math.sin(i * Math.PI / 3) * 100,
+                              Math.sin((i * Math.PI / 3) + (2 * Math.PI)) * 100
+                            ],
+                            scale: [1, 1.5, 1],
+                            opacity: [0.6, 1, 0.6]
+                          }}
+                          transition={{
+                            duration: 15 + i * 2,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                      ))}
                     </motion.div>
                     
-                    {/* Floating metrics cards */}
-                    <div className="grid grid-cols-2 gap-6 w-full max-w-md">
-                      <motion.div
-                        className="glass-effect rounded-xl p-6 text-center"
-                        animate={{ y: [-5, 5, -5] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <div className="text-2xl font-bold text-gradient-primary mb-2">99.9%</div>
-                        <div className="text-sm text-muted-foreground">Uptime</div>
-                      </motion.div>
-                      
-                      <motion.div
-                        className="glass-effect rounded-xl p-6 text-center"
-                        animate={{ y: [5, -5, 5] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                      >
-                        <div className="text-2xl font-bold text-gradient-secondary mb-2">2.5s</div>
-                        <div className="text-sm text-muted-foreground">Load Time</div>
-                      </motion.div>
-                      
-                      <motion.div
-                        className="glass-effect rounded-xl p-6 text-center"
-                        animate={{ y: [-3, 7, -3] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                      >
-                        <div className="text-2xl font-bold neon-green mb-2">A+</div>
-                        <div className="text-sm text-muted-foreground">Security</div>
-                      </motion.div>
-                      
-                      <motion.div
-                        className="glass-effect rounded-xl p-6 text-center"
-                        animate={{ y: [7, -3, 7] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                      >
-                        <div className="text-2xl font-bold neon-pink mb-2">24/7</div>
-                        <div className="text-sm text-muted-foreground">Support</div>
-                      </motion.div>
+                    {/* Revolutionary 3D Floating Metrics Grid */}
+                    <div className="grid grid-cols-2 gap-8 w-full max-w-2xl perspective-1000">
+                      {[
+                        { value: "99.9%", label: "Uptime", color: "neon-blue", delay: 0 },
+                        { value: "0.8s", label: "Load Time", color: "neon-green", delay: 0.2 },
+                        { value: "A+", label: "Security", color: "neon-pink", delay: 0.4 },
+                        { value: "24/7", label: "Support", color: "neon-purple", delay: 0.6 }
+                      ].map((metric, index) => (
+                        <motion.div
+                          key={metric.label}
+                          className="relative group preserve-3d"
+                          initial={{ 
+                            opacity: 0, 
+                            y: 50, 
+                            rotateX: -45,
+                            scale: 0.8
+                          }}
+                          animate={{ 
+                            opacity: 1, 
+                            y: 0, 
+                            rotateX: 0,
+                            scale: 1
+                          }}
+                          transition={{ 
+                            duration: 1, 
+                            delay: metric.delay,
+                            type: "spring",
+                            damping: 20,
+                            stiffness: 300
+                          }}
+                          whileHover={{
+                            scale: 1.05,
+                            rotateY: 10,
+                            rotateX: 5,
+                            z: 50,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          {/* Holographic card container */}
+                          <motion.div
+                            className="glass-effect rounded-2xl p-8 text-center relative overflow-hidden border border-white/10"
+                            animate={{ 
+                              y: [
+                                index % 2 === 0 ? -8 : 8, 
+                                index % 2 === 0 ? 8 : -8, 
+                                index % 2 === 0 ? -8 : 8
+                              ]
+                            }}
+                            transition={{ 
+                              duration: 4 + index * 0.5, 
+                              repeat: Infinity, 
+                              ease: "easeInOut",
+                              delay: index * 0.3
+                            }}
+                          >
+                            {/* Dynamic background gradient */}
+                            <motion.div
+                              className={`absolute inset-0 bg-gradient-to-br from-${metric.color}/10 via-transparent to-${metric.color}/5 opacity-0 group-hover:opacity-100`}
+                              animate={{
+                                background: [
+                                  `linear-gradient(45deg, var(--${metric.color})/10, transparent, var(--${metric.color})/5)`,
+                                  `linear-gradient(225deg, var(--${metric.color})/15, transparent, var(--${metric.color})/10)`,
+                                  `linear-gradient(45deg, var(--${metric.color})/10, transparent, var(--${metric.color})/5)`
+                                ]
+                              }}
+                              transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                              }}
+                            />
+                            
+                            {/* Floating particles */}
+                            <div className="absolute inset-0 overflow-hidden">
+                              {[...Array(5)].map((_, i) => (
+                                <motion.div
+                                  key={i}
+                                  className={`absolute w-1 h-1 bg-${metric.color} rounded-full opacity-60`}
+                                  animate={{
+                                    x: [
+                                      Math.random() * 100 + '%',
+                                      Math.random() * 100 + '%',
+                                      Math.random() * 100 + '%'
+                                    ],
+                                    y: [
+                                      Math.random() * 100 + '%',
+                                      Math.random() * 100 + '%',
+                                      Math.random() * 100 + '%'
+                                    ],
+                                    opacity: [0, 1, 0]
+                                  }}
+                                  transition={{
+                                    duration: 3 + i,
+                                    repeat: Infinity,
+                                    delay: i * 0.5
+                                  }}
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* Metric value with holographic effect */}
+                            <motion.div 
+                              className={`text-4xl font-black mb-4 relative z-10 text-${metric.color}`}
+                              style={{
+                                filter: `drop-shadow(0 0 15px var(--${metric.color}))`
+                              }}
+                              animate={{
+                                textShadow: [
+                                  `0 0 20px var(--${metric.color})`,
+                                  `0 0 30px var(--${metric.color})`,
+                                  `0 0 20px var(--${metric.color})`
+                                ]
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                              }}
+                              whileHover={{
+                                scale: 1.1,
+                                transition: { duration: 0.2 }
+                              }}
+                            >
+                              {metric.value}
+                            </motion.div>
+                            
+                            {/* Enhanced label */}
+                            <motion.div 
+                              className="text-sm font-semibold text-muted-foreground/80 uppercase tracking-wider relative z-10"
+                              animate={{
+                                opacity: [0.7, 1, 0.7]
+                              }}
+                              transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: index * 0.2
+                              }}
+                            >
+                              {metric.label}
+                            </motion.div>
+                            
+                            {/* Holographic corner accents */}
+                            <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </motion.div>
+                        </motion.div>
+                      ))}
                     </div>
+                    
+                    {/* Revolutionary data visualization lines */}
+                    <motion.svg
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 0.3 }}
+                      transition={{ duration: 2, delay: 1 }}
+                    >
+                      {[...Array(4)].map((_, i) => (
+                        <motion.path
+                          key={i}
+                          d={`M ${100 + i * 150} 300 Q ${200 + i * 100} ${200 + i * 50} ${300 + i * 120} 400`}
+                          stroke="url(#gradient)"
+                          strokeWidth="1"
+                          fill="none"
+                          pathLength="0"
+                          animate={{ pathLength: [0, 1, 0] }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            delay: i * 0.5,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      ))}
+                      <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#1ae7ff" stopOpacity="0" />
+                          <stop offset="50%" stopColor="#ff6b9d" stopOpacity="0.8" />
+                          <stop offset="100%" stopColor="#00ff88" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                    </motion.svg>
                   </div>
                 </div>
                 
