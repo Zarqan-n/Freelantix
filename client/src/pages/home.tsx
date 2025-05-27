@@ -214,9 +214,9 @@ export default function Home() {
                 <div className="absolute -inset-12 gradient-primary rounded-3xl opacity-10 blur-3xl group-hover:opacity-15 transition-all duration-1000"></div>
                 <div className="absolute -inset-8 gradient-secondary rounded-2xl opacity-8 blur-2xl group-hover:opacity-12 transition-all duration-1000"></div>
                 
-                {/* Main premium dashboard container */}
-                <div className="relative premium-border rounded-3xl p-3 group-hover:scale-[1.02] transition-transform duration-700">
-                  <div className="premium-border-content rounded-3xl p-4 sm:p-8 lg:p-12 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] flex flex-col justify-center items-center relative overflow-hidden">
+                {/* Main premium dashboard container - Enhanced responsiveness */}
+                <div className="relative premium-border rounded-2xl sm:rounded-3xl p-2 sm:p-3 group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-transform duration-700">
+                  <div className="premium-border-content rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] flex flex-col justify-center items-center relative overflow-hidden">
                     
                     {/* Revolutionary Holographic Central Hub */}
                     <motion.div
@@ -364,8 +364,8 @@ export default function Home() {
                       ))}
                     </motion.div>
                     
-                    {/* Revolutionary 3D Floating Metrics Grid - Responsive grid */}
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 w-full max-w-xs sm:max-w-lg lg:max-w-2xl perspective-1000">
+                    {/* Revolutionary 3D Floating Metrics Grid - Enhanced responsive grid */}
+                    <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-6 xl:gap-8 w-full max-w-[280px] sm:max-w-md lg:max-w-lg xl:max-w-2xl perspective-1000">
                       {[
                         { value: "99.9%", label: "Uptime", color: "neon-blue", delay: 0 },
                         { value: "0.8s", label: "Load Time", color: "neon-green", delay: 0.2 },
@@ -404,7 +404,7 @@ export default function Home() {
                         >
                           {/* Holographic card container - Responsive padding */}
                           <motion.div
-                            className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-8 text-center relative overflow-hidden border border-white/10"
+                            className="glass-effect rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-6 xl:p-8 text-center relative overflow-hidden border border-white/10 min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] xl:min-h-[140px]"
                             animate={{ 
                               y: [
                                 index % 2 === 0 ? -4 : 4, 
@@ -464,9 +464,9 @@ export default function Home() {
                               ))}
                             </div>
                             
-                            {/* Metric value with holographic effect - Responsive text */}
+                            {/* Metric value with holographic effect - Enhanced responsive text */}
                             <motion.div 
-                              className={`text-xl sm:text-2xl lg:text-4xl font-black mb-2 sm:mb-3 lg:mb-4 relative z-10 text-${metric.color}`}
+                              className={`text-lg sm:text-xl lg:text-2xl xl:text-4xl font-black mb-1 sm:mb-2 lg:mb-3 xl:mb-4 relative z-10 text-${metric.color}`}
                               style={{
                                 filter: `drop-shadow(0 0 15px var(--${metric.color}))`
                               }}
@@ -563,8 +563,43 @@ export default function Home() {
                     rotate: { duration: 20, repeat: Infinity, ease: "linear" }
                   }}
                 >
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 gradient-primary rounded-lg sm:rounded-xl flex items-center justify-center">
-                    <span className="text-background font-bold text-xs sm:text-sm">AI</span>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 gradient-primary rounded-lg sm:rounded-xl flex items-center justify-center relative overflow-hidden">
+                    {/* AI neural network effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-neon-blue/30 via-transparent to-neon-pink/30"
+                      animate={{
+                        opacity: [0.3, 0.8, 0.3],
+                        scale: [0.8, 1.2, 0.8]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <span className="text-background font-bold text-xs sm:text-sm relative z-10">AI</span>
+                    {/* Neural connections */}
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-0.5 h-0.5 bg-neon-blue rounded-full"
+                        style={{
+                          left: '50%',
+                          top: '50%',
+                        }}
+                        animate={{
+                          x: [0, Math.cos(i * 2 * Math.PI / 3) * 15],
+                          y: [0, Math.sin(i * 2 * Math.PI / 3) * 15],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          delay: i * 0.2,
+                          ease: "easeOut"
+                        }}
+                      />
+                    ))}
                   </div>
                 </motion.div>
                 
