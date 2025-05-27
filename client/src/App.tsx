@@ -18,12 +18,20 @@ import CookiePolicy from "@/pages/cookie-policy";
 
 import FAQ from "@/pages/faq";
 import NotFound from "@/pages/not-found";
+import WebDevelopment from "@/pages/services/web-development";
+import UIUXDesign from "@/pages/services/ui-ux-design";
+import EcommerceSolutions from "@/pages/services/ecommerce-solutions";
+import DigitalStrategy from "@/pages/services/digital-strategy";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/services/web-development" component={WebDevelopment} />
+      <Route path="/services/ui-ux-design" component={UIUXDesign} />
+      <Route path="/services/ecommerce-solutions" component={EcommerceSolutions} />
+      <Route path="/services/digital-strategy" component={DigitalStrategy} />
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
@@ -32,7 +40,6 @@ function Router() {
       <Route path="/careers" component={Careers} />
       <Route path="/learn-ui-ux-design" component={LearnUIUXDesign} />
       <Route path="/cookie-policy" component={CookiePolicy} />
-
       <Route path="/faq" component={FAQ} />
       <Route component={NotFound} />
     </Switch>
