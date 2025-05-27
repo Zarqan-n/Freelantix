@@ -120,85 +120,239 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced with responsive animations */}
       <section className="min-h-screen flex items-center relative overflow-hidden">
         <AnimatedBackground />
         <AdvancedBackground variant="constellation" />
         <ParticleSystem particleCount={40} />
         
-        {/* Premium floating elements */}
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        {/* Enhanced premium floating elements - Responsive */}
+        <motion.div 
+          className="absolute top-1/4 left-1/6 sm:left-1/4 lg:left-1/3 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 gradient-primary rounded-full opacity-3 sm:opacity-5 blur-3xl"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/6 sm:right-1/4 lg:right-1/3 w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 gradient-secondary rounded-full opacity-3 sm:opacity-5 blur-3xl"
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            opacity: [0.5, 0.3, 0.5]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
         
-        <div className="container mx-auto px-6 py-32 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+        {/* Floating accent elements */}
+        <motion.div
+          className="absolute top-20 right-20 w-4 h-4 bg-neon-blue rounded-full opacity-60"
+          animate={{
+            y: [-20, 20, -20],
+            x: [-10, 10, -10],
+            opacity: [0.4, 0.8, 0.4]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-32 left-16 w-3 h-3 bg-neon-pink rounded-full opacity-50"
+          animate={{
+            y: [15, -15, 15],
+            x: [10, -10, 10],
+            opacity: [0.3, 0.7, 0.3]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        
+        <div className="container mx-auto px-4 sm:px-6 py-20 sm:py-32 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
               className="relative"
             >
+              {/* Enhanced hero title with better mobile responsiveness */}
               <motion.h1 
-                className="font-black mb-10 leading-[0.9] tracking-tight"
-                initial={{ opacity: 0, y: 30 }}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-8 sm:mb-10 leading-[0.9] tracking-tight"
+                initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+                transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
               >
-                Building <span className="text-gradient-primary">Cutting-Edge</span><br />
-                Digital <span className="text-shimmer">Experiences</span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  Building{" "}
+                </motion.span>
+                <motion.span 
+                  className="text-gradient-primary"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.7, ease: "backOut" }}
+                >
+                  Cutting-Edge
+                </motion.span>
+                <br />
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
+                >
+                  Digital{" "}
+                </motion.span>
+                <motion.span 
+                  className="text-shimmer relative"
+                  initial={{ opacity: 0, rotateX: -90 }}
+                  animate={{ opacity: 1, rotateX: 0 }}
+                  transition={{ duration: 1, delay: 1.1, ease: "backOut" }}
+                >
+                  Experiences
+                  {/* Glowing underline effect */}
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-neon-blue via-neon-pink to-neon-green rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1.5, delay: 1.5, ease: "easeOut" }}
+                  />
+                </motion.span>
               </motion.h1>
               
+              {/* Enhanced description with typewriter effect */}
               <motion.p 
-                className="text-xl lg:text-2xl text-muted-foreground mb-12 font-light leading-relaxed max-w-2xl"
-                initial={{ opacity: 0, y: 20 }}
+                className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-10 sm:mb-12 font-light leading-relaxed max-w-2xl"
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 1, delay: 0.6 }}
               >
-                Premium digital solutions that transform businesses and accelerate growth through innovation and excellence
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 1.3 }}
+                >
+                  Premium digital solutions that transform businesses and accelerate growth through{" "}
+                </motion.span>
+                <motion.span 
+                  className="text-gradient-secondary font-medium"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.6 }}
+                >
+                  innovation and excellence
+                </motion.span>
               </motion.p>
               
+              {/* Enhanced CTA buttons with improved animations */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-6"
-                initial={{ opacity: 0, y: 20 }}
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6"
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 1, delay: 1.8 }}
               >
-                <Link href="/contact">
-                  <MagneticButton strength={0.3}>
-                    <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
-                      Get Started 
-                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                  </MagneticButton>
-                </Link>
-                <Link href="/portfolio">
-                  <MagneticButton strength={0.2}>
-                    <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-10 py-6 text-lg font-semibold">
-                      View Portfolio
-                    </Button>
-                  </MagneticButton>
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Link href="/contact">
+                    <MagneticButton strength={0.3}>
+                      <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-8 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold group w-full sm:w-auto">
+                        Get Started 
+                        <motion.div
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                        </motion.div>
+                      </Button>
+                    </MagneticButton>
+                  </Link>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Link href="/portfolio">
+                    <MagneticButton strength={0.2}>
+                      <Button size="lg" variant="outline" className="glass-effect border-neon-blue text-neon-blue hover:bg-neon-blue/10 px-8 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold w-full sm:w-auto">
+                        View Portfolio
+                      </Button>
+                    </MagneticButton>
+                  </Link>
+                </motion.div>
               </motion.div>
               
-              {/* Premium stats preview */}
+              {/* Enhanced premium stats preview with staggered animations */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex items-center gap-8 mt-16 pt-8 border-t border-border/20"
+                transition={{ duration: 1, delay: 2.2 }}
+                className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border/20"
               >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient-primary">150+</div>
-                  <div className="text-sm text-muted-foreground">Projects Delivered</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient-secondary">98%</div>
-                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold neon-green">24/7</div>
-                  <div className="text-sm text-muted-foreground">Support</div>
-                </div>
+                {[
+                  { value: "150+", label: "Projects Delivered", gradient: "text-gradient-primary", delay: 0 },
+                  { value: "98%", label: "Client Satisfaction", gradient: "text-gradient-secondary", delay: 0.2 },
+                  { value: "24/7", label: "Support", gradient: "text-neon-green", delay: 0.4 }
+                ].map((stat, index) => (
+                  <motion.div 
+                    key={stat.label}
+                    className="text-center flex-1"
+                    initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                      duration: 0.8, 
+                      delay: 2.4 + stat.delay,
+                      type: "spring",
+                      stiffness: 200
+                    }}
+                    whileHover={{ 
+                      scale: 1.1,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <motion.div 
+                      className={`text-xl sm:text-2xl font-bold ${stat.gradient} mb-1`}
+                      animate={{
+                        textShadow: [
+                          "0 0 10px rgba(26, 231, 255, 0.5)",
+                          "0 0 20px rgba(26, 231, 255, 0.8)",
+                          "0 0 10px rgba(26, 231, 255, 0.5)"
+                        ]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.5
+                      }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <div className="text-xs sm:text-sm text-muted-foreground font-medium">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
             </motion.div>
             
