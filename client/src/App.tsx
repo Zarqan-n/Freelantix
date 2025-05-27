@@ -15,7 +15,7 @@ import TermsOfService from "@/pages/terms-of-service";
 import Careers from "@/pages/careers";
 import LearnUIUXDesign from "@/pages/learn-ui-ux-design";
 import CookiePolicy from "@/pages/cookie-policy";
-import Blog from "@/pages/blog";
+
 import FAQ from "@/pages/faq";
 import NotFound from "@/pages/not-found";
 
@@ -32,7 +32,7 @@ function Router() {
       <Route path="/careers" component={Careers} />
       <Route path="/learn-ui-ux-design" component={LearnUIUXDesign} />
       <Route path="/cookie-policy" component={CookiePolicy} />
-      <Route path="/blog" component={Blog} />
+
       <Route path="/faq" component={FAQ} />
       <Route component={NotFound} />
     </Switch>

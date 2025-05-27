@@ -12,7 +12,8 @@ const footerLinks = {
     { name: "About Us", href: "/about" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Contact", href: "/contact" },
-    { name: "Careers", href: "/careers" }
+    { name: "Careers", href: "/careers" },
+    { name: "FAQ", href: "/faq" }
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy-policy" },
@@ -96,6 +97,7 @@ export default function Footer() {
                       className="text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer flex items-center group"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
+                      onClick={() => window.scrollTo(0, 0)}
                     >
                       <span className="w-2 h-2 bg-neon-blue rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {link.name}
@@ -121,6 +123,7 @@ export default function Footer() {
                       className="text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer flex items-center group"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
+                      onClick={() => window.scrollTo(0, 0)}
                     >
                       <span className="w-2 h-2 bg-neon-green rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {link.name}
@@ -135,7 +138,10 @@ export default function Footer() {
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href}>
-                    <span className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer">
+                    <span 
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
                       {link.name}
                     </span>
                   </Link>
@@ -170,7 +176,10 @@ export default function Footer() {
                   All systems operational
                 </span>
                 <Link href="/contact">
-                  <span className="text-neon-blue hover:text-neon-blue/80 transition-colors cursor-pointer">
+                  <span 
+                    className="text-neon-blue hover:text-neon-blue/80 transition-colors cursor-pointer"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
                     Get Support
                   </span>
                 </Link>
