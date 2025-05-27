@@ -205,30 +205,156 @@ export default function UIUXDesign() {
             {portfolioHighlights.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.15,
+                  type: "spring",
+                  damping: 20,
+                  stiffness: 300
+                }}
+                className="group"
               >
                 <MorphingCard>
-                  <div className="card-premium p-8 h-full">
-                    <div className="text-xs font-semibold text-neon-pink mb-4 uppercase tracking-wider">
-                      {project.category}
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-foreground">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <div className="space-y-3">
-                      {project.metrics.map((metric, idx) => (
-                        <div key={idx} className="flex items-center gap-3">
-                          <Award className="w-4 h-4 text-neon-green" />
-                          <span className="text-sm font-semibold text-foreground">
-                            {metric}
-                          </span>
-                        </div>
-                      ))}
+                  <div className="card-premium p-8 h-full relative overflow-hidden">
+                    {/* Background gradient effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-neon-pink/5 via-transparent to-neon-blue/5 opacity-0 group-hover:opacity-100 transition-all duration-700"
+                      initial={false}
+                    />
+                    
+                    {/* Floating decorative elements */}
+                    <motion.div
+                      className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-neon-pink/20 to-neon-blue/20 rounded-full blur-sm"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.7, 0.3]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: index * 0.5
+                      }}
+                    />
+                    
+                    <div className="relative z-10">
+                      {/* Enhanced category badge */}
+                      <motion.div 
+                        className="inline-flex items-center gap-2 mb-6"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <motion.div
+                          className="w-2 h-2 bg-neon-pink rounded-full"
+                          animate={{
+                            scale: [1, 1.5, 1],
+                            opacity: [0.7, 1, 0.7]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: index * 0.3
+                          }}
+                        />
+                        <span className="text-xs font-bold text-neon-pink uppercase tracking-wider bg-neon-pink/10 px-3 py-1 rounded-full border border-neon-pink/20">
+                          {project.category}
+                        </span>
+                      </motion.div>
+                      
+                      {/* Enhanced title with hover effect */}
+                      <motion.h3 
+                        className="text-xl font-bold mb-4 text-foreground group-hover:text-gradient-secondary transition-all duration-300"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {project.title}
+                      </motion.h3>
+                      
+                      {/* Enhanced description */}
+                      <motion.p 
+                        className="text-muted-foreground mb-8 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300"
+                        initial={{ opacity: 0.8 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                      >
+                        {project.description}
+                      </motion.p>
+                      
+                      {/* Enhanced metrics with staggered animations */}
+                      <div className="space-y-4">
+                        <motion.div
+                          className="text-sm font-semibold text-gradient-primary mb-3 uppercase tracking-wider"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
+                        >
+                          Key Results:
+                        </motion.div>
+                        {project.metrics.map((metric, idx) => (
+                          <motion.div 
+                            key={idx} 
+                            className="flex items-center gap-4 group/metric"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                              duration: 0.6, 
+                              delay: index * 0.1 + idx * 0.1 + 0.5,
+                              type: "spring",
+                              damping: 25
+                            }}
+                            whileHover={{ x: 5 }}
+                          >
+                            <motion.div
+                              className="relative"
+                              whileHover={{ scale: 1.2, rotate: 360 }}
+                              transition={{ duration: 0.4 }}
+                            >
+                              <Award className="w-5 h-5 text-neon-green drop-shadow-lg" />
+                              <motion.div
+                                className="absolute inset-0 bg-neon-green/20 rounded-full blur-sm"
+                                animate={{
+                                  scale: [1, 1.5, 1],
+                                  opacity: [0, 0.5, 0]
+                                }}
+                                transition={{
+                                  duration: 2,
+                                  repeat: Infinity,
+                                  delay: idx * 0.3
+                                }}
+                              />
+                            </motion.div>
+                            <span className="text-sm font-bold text-foreground group-hover/metric:text-neon-green transition-colors duration-300">
+                              {metric}
+                            </span>
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* Success indicator */}
+                      <motion.div
+                        className="absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-br from-neon-green/20 to-neon-blue/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500"
+                        animate={{
+                          rotate: [0, 360]
+                        }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                      >
+                        <motion.div
+                          className="w-6 h-6 bg-gradient-to-br from-neon-green to-neon-blue rounded-full"
+                          animate={{
+                            scale: [1, 1.2, 1]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      </motion.div>
                     </div>
                   </div>
                 </MorphingCard>
