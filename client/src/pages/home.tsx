@@ -216,18 +216,18 @@ export default function Home() {
                 
                 {/* Main premium dashboard container */}
                 <div className="relative premium-border rounded-3xl p-3 group-hover:scale-[1.02] transition-transform duration-700">
-                  <div className="premium-border-content rounded-3xl p-12 min-h-[600px] flex flex-col justify-center items-center relative overflow-hidden">
+                  <div className="premium-border-content rounded-3xl p-4 sm:p-8 lg:p-12 min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] flex flex-col justify-center items-center relative overflow-hidden">
                     
                     {/* Revolutionary Holographic Central Hub */}
                     <motion.div
-                      className="relative mb-20 perspective-1000"
+                      className="relative mb-12 sm:mb-16 lg:mb-20 perspective-1000"
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 1.5, ease: "easeOut" }}
                     >
-                      {/* Multi-layered rotating rings */}
+                      {/* Multi-layered rotating rings - Responsive sizes */}
                       <motion.div
-                        className="absolute inset-0 w-48 h-48 -m-8"
+                        className="absolute inset-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 -m-4 sm:-m-6 lg:-m-8"
                         animate={{ rotate: [0, 360] }}
                         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                       >
@@ -235,7 +235,7 @@ export default function Home() {
                       </motion.div>
                       
                       <motion.div
-                        className="absolute inset-0 w-40 h-40 -m-4"
+                        className="absolute inset-0 w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 -m-2 sm:-m-3 lg:-m-4"
                         animate={{ rotate: [360, 0] }}
                         transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
                       >
@@ -243,16 +243,16 @@ export default function Home() {
                       </motion.div>
                       
                       <motion.div
-                        className="absolute inset-0 w-36 h-36 -m-2"
+                        className="absolute inset-0 w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 -m-1 sm:-m-1.5 lg:-m-2"
                         animate={{ rotate: [0, 360] }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                       >
                         <div className="w-full h-full border border-neon-green/30 rounded-full"></div>
                       </motion.div>
                       
-                      {/* Central holographic logo */}
+                      {/* Central holographic logo - Responsive sizing */}
                       <motion.div 
-                        className="relative w-32 h-32 premium-border rounded-full p-1 preserve-3d"
+                        className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 premium-border rounded-full p-1 preserve-3d"
                         animate={{ 
                           rotateY: [0, 360],
                           scale: [1, 1.05, 1]
@@ -283,9 +283,9 @@ export default function Home() {
                             }}
                           />
                           
-                          {/* Logo with holographic effect */}
+                          {/* Logo with holographic effect - Responsive text size */}
                           <motion.div 
-                            className="text-5xl font-black relative z-10"
+                            className="text-2xl sm:text-3xl lg:text-5xl font-black relative z-10"
                             style={{
                               background: 'linear-gradient(45deg, #1ae7ff, #ff6b9d, #00ff88, #c471ed)',
                               backgroundSize: '400% 400%',
@@ -305,26 +305,26 @@ export default function Home() {
                             FX
                           </motion.div>
                           
-                          {/* Particle burst effect */}
-                          {[...Array(8)].map((_, i) => (
+                          {/* Particle burst effect - Reduced for mobile */}
+                          {[...Array(6)].map((_, i) => (
                             <motion.div
                               key={i}
-                              className="absolute w-1 h-1 bg-neon-blue rounded-full"
+                              className="absolute w-0.5 h-0.5 sm:w-1 sm:h-1 bg-neon-blue rounded-full"
                               style={{
                                 left: '50%',
                                 top: '50%',
                                 transformOrigin: '0 0'
                               }}
                               animate={{
-                                x: [0, Math.cos(i * Math.PI / 4) * 60],
-                                y: [0, Math.sin(i * Math.PI / 4) * 60],
-                                opacity: [1, 0],
+                                x: [0, Math.cos(i * Math.PI / 3) * 30, Math.cos(i * Math.PI / 3) * 60],
+                                y: [0, Math.sin(i * Math.PI / 3) * 30, Math.sin(i * Math.PI / 3) * 60],
+                                opacity: [1, 0.5, 0],
                                 scale: [0, 1, 0]
                               }}
                               transition={{
                                 duration: 2,
                                 repeat: Infinity,
-                                delay: i * 0.2,
+                                delay: i * 0.3,
                                 ease: "easeOut"
                               }}
                             />
@@ -332,31 +332,31 @@ export default function Home() {
                         </div>
                       </motion.div>
                       
-                      {/* Orbiting data points */}
-                      {[...Array(6)].map((_, i) => (
+                      {/* Orbiting data points - Responsive positioning */}
+                      {[...Array(4)].map((_, i) => (
                         <motion.div
                           key={i}
-                          className="absolute w-3 h-3 bg-gradient-to-br from-neon-blue to-neon-pink rounded-full"
+                          className="absolute w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 bg-gradient-to-br from-neon-blue to-neon-pink rounded-full"
                           style={{
                             left: '50%',
                             top: '50%',
-                            marginLeft: '-6px',
-                            marginTop: '-6px'
+                            marginLeft: '-4px',
+                            marginTop: '-4px'
                           }}
                           animate={{
                             x: [
-                              Math.cos(i * Math.PI / 3) * 100,
-                              Math.cos((i * Math.PI / 3) + (2 * Math.PI)) * 100
+                              Math.cos(i * Math.PI / 2) * 70,
+                              Math.cos((i * Math.PI / 2) + (2 * Math.PI)) * 70
                             ],
                             y: [
-                              Math.sin(i * Math.PI / 3) * 100,
-                              Math.sin((i * Math.PI / 3) + (2 * Math.PI)) * 100
+                              Math.sin(i * Math.PI / 2) * 70,
+                              Math.sin((i * Math.PI / 2) + (2 * Math.PI)) * 70
                             ],
-                            scale: [1, 1.5, 1],
+                            scale: [1, 1.2, 1],
                             opacity: [0.6, 1, 0.6]
                           }}
                           transition={{
-                            duration: 15 + i * 2,
+                            duration: 12 + i * 2,
                             repeat: Infinity,
                             ease: "linear"
                           }}
@@ -364,8 +364,8 @@ export default function Home() {
                       ))}
                     </motion.div>
                     
-                    {/* Revolutionary 3D Floating Metrics Grid */}
-                    <div className="grid grid-cols-2 gap-8 w-full max-w-2xl perspective-1000">
+                    {/* Revolutionary 3D Floating Metrics Grid - Responsive grid */}
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 w-full max-w-xs sm:max-w-lg lg:max-w-2xl perspective-1000">
                       {[
                         { value: "99.9%", label: "Uptime", color: "neon-blue", delay: 0 },
                         { value: "0.8s", label: "Load Time", color: "neon-green", delay: 0.2 },
@@ -402,14 +402,14 @@ export default function Home() {
                             transition: { duration: 0.3 }
                           }}
                         >
-                          {/* Holographic card container */}
+                          {/* Holographic card container - Responsive padding */}
                           <motion.div
-                            className="glass-effect rounded-2xl p-8 text-center relative overflow-hidden border border-white/10"
+                            className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-8 text-center relative overflow-hidden border border-white/10"
                             animate={{ 
                               y: [
-                                index % 2 === 0 ? -8 : 8, 
-                                index % 2 === 0 ? 8 : -8, 
-                                index % 2 === 0 ? -8 : 8
+                                index % 2 === 0 ? -4 : 4, 
+                                index % 2 === 0 ? 4 : -4, 
+                                index % 2 === 0 ? -4 : 4
                               ]
                             }}
                             transition={{ 
@@ -421,7 +421,7 @@ export default function Home() {
                           >
                             {/* Dynamic background gradient */}
                             <motion.div
-                              className={`absolute inset-0 bg-gradient-to-br from-${metric.color}/10 via-transparent to-${metric.color}/5 opacity-0 group-hover:opacity-100`}
+                              className={`absolute inset-0 bg-gradient-to-br from-${metric.color}/10 via-transparent to-${metric.color}/5 opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl`}
                               animate={{
                                 background: [
                                   `linear-gradient(45deg, var(--${metric.color})/10, transparent, var(--${metric.color})/5)`,
@@ -436,12 +436,12 @@ export default function Home() {
                               }}
                             />
                             
-                            {/* Floating particles */}
+                            {/* Floating particles - Reduced for mobile */}
                             <div className="absolute inset-0 overflow-hidden">
-                              {[...Array(5)].map((_, i) => (
+                              {[...Array(3)].map((_, i) => (
                                 <motion.div
                                   key={i}
-                                  className={`absolute w-1 h-1 bg-${metric.color} rounded-full opacity-60`}
+                                  className={`absolute w-0.5 h-0.5 sm:w-1 sm:h-1 bg-${metric.color} rounded-full opacity-60`}
                                   animate={{
                                     x: [
                                       Math.random() * 100 + '%',
@@ -464,17 +464,17 @@ export default function Home() {
                               ))}
                             </div>
                             
-                            {/* Metric value with holographic effect */}
+                            {/* Metric value with holographic effect - Responsive text */}
                             <motion.div 
-                              className={`text-4xl font-black mb-4 relative z-10 text-${metric.color}`}
+                              className={`text-xl sm:text-2xl lg:text-4xl font-black mb-2 sm:mb-3 lg:mb-4 relative z-10 text-${metric.color}`}
                               style={{
                                 filter: `drop-shadow(0 0 15px var(--${metric.color}))`
                               }}
                               animate={{
                                 textShadow: [
-                                  `0 0 20px var(--${metric.color})`,
-                                  `0 0 30px var(--${metric.color})`,
-                                  `0 0 20px var(--${metric.color})`
+                                  `0 0 15px var(--${metric.color})`,
+                                  `0 0 25px var(--${metric.color})`,
+                                  `0 0 15px var(--${metric.color})`
                                 ]
                               }}
                               transition={{
@@ -483,16 +483,16 @@ export default function Home() {
                                 ease: "easeInOut"
                               }}
                               whileHover={{
-                                scale: 1.1,
+                                scale: 1.05,
                                 transition: { duration: 0.2 }
                               }}
                             >
                               {metric.value}
                             </motion.div>
                             
-                            {/* Enhanced label */}
+                            {/* Enhanced label - Responsive text */}
                             <motion.div 
-                              className="text-sm font-semibold text-muted-foreground/80 uppercase tracking-wider relative z-10"
+                              className="text-xs sm:text-sm font-semibold text-muted-foreground/80 uppercase tracking-wider relative z-10"
                               animate={{
                                 opacity: [0.7, 1, 0.7]
                               }}
@@ -506,11 +506,11 @@ export default function Home() {
                               {metric.label}
                             </motion.div>
                             
-                            {/* Holographic corner accents */}
-                            <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            {/* Holographic corner accents - Responsive sizing */}
+                            <div className="absolute top-1 left-1 sm:top-2 sm:left-2 w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 border-l-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute top-1 right-1 sm:top-2 sm:right-2 w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 border-r-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 border-l-2 border-b-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 border-r-2 border-b-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                           </motion.div>
                         </motion.div>
                       ))}
@@ -551,11 +551,11 @@ export default function Home() {
                   </div>
                 </div>
                 
-                {/* Elegant floating technology icons */}
+                {/* Elegant floating technology icons - Responsive positioning and sizing */}
                 <motion.div
-                  className="absolute -top-8 -right-8 w-20 h-20 glass-effect rounded-2xl flex items-center justify-center"
+                  className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 lg:-top-8 lg:-right-8 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 glass-effect rounded-xl sm:rounded-2xl flex items-center justify-center"
                   animate={{ 
-                    y: [-8, 8, -8],
+                    y: [-4, 4, -4],
                     rotate: [0, 180, 360]
                   }}
                   transition={{ 
@@ -563,15 +563,15 @@ export default function Home() {
                     rotate: { duration: 20, repeat: Infinity, ease: "linear" }
                   }}
                 >
-                  <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
-                    <span className="text-background font-bold text-sm">AI</span>
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 gradient-primary rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <span className="text-background font-bold text-xs sm:text-sm">AI</span>
                   </div>
                 </motion.div>
                 
                 <motion.div
-                  className="absolute -bottom-6 -left-6 w-16 h-16 glass-effect rounded-2xl flex items-center justify-center"
+                  className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 lg:-bottom-6 lg:-left-6 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 glass-effect rounded-xl sm:rounded-2xl flex items-center justify-center"
                   animate={{ 
-                    y: [8, -8, 8],
+                    y: [4, -4, 4],
                     rotate: [360, 180, 0]
                   }}
                   transition={{ 
@@ -579,29 +579,29 @@ export default function Home() {
                     rotate: { duration: 15, repeat: Infinity, ease: "linear" }
                   }}
                 >
-                  <div className="w-8 h-8 gradient-secondary rounded-lg flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 gradient-secondary rounded-md sm:rounded-lg flex items-center justify-center">
                     <span className="text-background font-bold text-xs">⚡</span>
                   </div>
                 </motion.div>
                 
                 <motion.div
-                  className="absolute top-1/3 -right-4 w-12 h-12 glass-effect rounded-full flex items-center justify-center"
+                  className="absolute top-1/3 -right-2 sm:-right-3 lg:-right-4 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 glass-effect rounded-full flex items-center justify-center"
                   animate={{ 
-                    x: [0, 8, 0],
-                    scale: [1, 1.1, 1]
+                    x: [0, 4, 0],
+                    scale: [1, 1.05, 1]
                   }}
                   transition={{ 
                     x: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 },
                     scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
                   }}
                 >
-                  <div className="w-6 h-6 gradient-tertiary rounded-full"></div>
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 gradient-tertiary rounded-full"></div>
                 </motion.div>
                 
                 <motion.div
-                  className="absolute bottom-1/3 -left-4 w-14 h-14 glass-effect rounded-xl flex items-center justify-center"
+                  className="absolute bottom-1/3 -left-2 sm:-left-3 lg:-left-4 w-9 h-9 sm:w-11 sm:h-11 lg:w-14 lg:h-14 glass-effect rounded-lg sm:rounded-xl flex items-center justify-center"
                   animate={{ 
-                    x: [0, -6, 0],
+                    x: [0, -3, 0],
                     opacity: [0.7, 1, 0.7]
                   }}
                   transition={{ 
@@ -609,7 +609,7 @@ export default function Home() {
                     opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" }
                   }}
                 >
-                  <div className="w-7 h-7 bg-neon-purple/30 rounded-lg flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 bg-neon-purple/30 rounded-md sm:rounded-lg flex items-center justify-center">
                     <span className="text-neon-purple font-bold text-xs">◆</span>
                   </div>
                 </motion.div>
