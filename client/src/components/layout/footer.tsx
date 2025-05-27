@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 const footerLinks = {
   services: [
-    { name: "Web Development", href: "/services" },
-    { name: "UI/UX Design", href: "/services" },
-    { name: "eCommerce Solutions", href: "/services" },
-    { name: "Digital Strategy", href: "/services" }
+    { name: "Web Development", href: "/services/web-development" },
+    { name: "UI/UX Design", href: "/services/ui-ux-design" },
+    { name: "eCommerce Solutions", href: "/services/ecommerce-solutions" },
+    { name: "Digital Strategy", href: "/services/digital-strategy" }
   ],
   company: [
     { name: "About Us", href: "/about" },
