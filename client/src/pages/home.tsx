@@ -9,6 +9,8 @@ import MagneticButton from "@/components/ui/magnetic-button";
 import ParticleSystem from "@/components/ui/particle-system";
 import MorphingCard from "@/components/ui/morphing-card";
 import AdvancedBackground from "@/components/ui/advanced-background";
+import SEOHead from "@/components/seo-head";
+import { WebsiteSchema } from "@/components/structured-data";
 import { Link } from "wouter";
 
 const services = [
@@ -120,6 +122,30 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="overflow-hidden">
+      <SEOHead 
+        title="Freelantix - Premium Digital Solutions & Web Development Services"
+        description="Transform your business with cutting-edge web development, UI/UX design, eCommerce solutions, and digital strategy. Trusted by 50+ businesses worldwide."
+        keywords="web development, UI UX design, eCommerce solutions, digital strategy, premium digital agency, custom websites, web applications"
+        canonicalUrl="https://freelantix.com"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Freelantix - Premium Digital Solutions",
+          "description": "Premium digital solutions that transform businesses and accelerate growth through innovation and excellence",
+          "url": "https://freelantix.com",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Freelantix",
+            "description": "Premium digital agency specializing in web development, UI/UX design, and digital strategy"
+          }
+        }}
+      />
+      <WebsiteSchema 
+        name="Freelantix"
+        url="https://freelantix.com"
+        description="Premium digital solutions including web development, UI/UX design, eCommerce solutions, and digital strategy services"
+        publisher="Freelantix"
+      />
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative overflow-hidden">
         <AnimatedBackground />

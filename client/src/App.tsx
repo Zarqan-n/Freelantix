@@ -53,7 +53,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="min-h-screen bg-background text-foreground">
+          <OrganizationSchema />
           <Header />
+          <Breadcrumbs />
           <main>
             <Router />
           </main>

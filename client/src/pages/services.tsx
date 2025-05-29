@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import TiltCard from "@/components/ui/tilt-card";
 import ParallaxContainer from "@/components/ui/parallax-container";
+import SEOHead from "@/components/seo-head";
+import { ServiceSchema } from "@/components/structured-data";
 import { Link } from "wouter";
 
 const services = [
