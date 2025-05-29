@@ -40,25 +40,37 @@ const team = [
     name: "Zarqan Nazeer",
     position: "Lead Developer",
     image: zarqanImage,
-    color: "neon-blue"
+    color: "neon-blue",
+    specialty: "Full-Stack Architecture",
+    experience: "5+ Years",
+    skills: ["React", "Node.js", "TypeScript", "AWS"]
   },
   {
     name: "Maya Patel",
     position: "Creative Director",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
-    color: "neon-green"
+    color: "neon-green",
+    specialty: "Brand & Visual Identity",
+    experience: "7+ Years",
+    skills: ["UI/UX", "Branding", "Motion Design", "Figma"]
   },
   {
     name: "Zeeshan Ahmed",
     position: "Strategy Consultant",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
-    color: "neon-pink"
+    color: "neon-pink",
+    specialty: "Digital Transformation",
+    experience: "8+ Years",
+    skills: ["Strategy", "Analytics", "Growth", "Optimization"]
   },
   {
     name: "Md Furkan",
     position: "UX Designer",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&crop=face",
-    color: "neon-blue"
+    color: "neon-blue",
+    specialty: "User Experience Design",
+    experience: "4+ Years",
+    skills: ["User Research", "Prototyping", "Design Systems", "Testing"]
   }
 ];
 
@@ -92,6 +104,14 @@ export default function About() {
               opacity: [0.3, 0.5, 0.3],
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute top-3/4 left-1/2 w-64 h-64 bg-neon-pink/15 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.15, 0.3, 0.15],
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
 
@@ -132,10 +152,17 @@ export default function About() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                  className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="group flex items-center justify-center gap-3 p-6 rounded-2xl bg-background/60 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 cursor-pointer"
                 >
-                  <item.icon className={`text-${item.color}`} size={24} />
-                  <span className="font-semibold">{item.text}</span>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className={`p-2 rounded-lg bg-${item.color}/10 group-hover:bg-${item.color}/20 transition-colors duration-300`}
+                  >
+                    <item.icon className={`text-${item.color} group-hover:scale-110 transition-transform duration-300`} size={24} />
+                  </motion.div>
+                  <span className="font-semibold group-hover:text-primary transition-colors duration-300">{item.text}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -261,14 +288,31 @@ export default function About() {
 
       {/* Enhanced Team Section */}
       <section className="py-32 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+        {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <motion.div 
-            className="absolute top-1/3 left-1/3 w-72 h-72 bg-neon-pink/20 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-pink/20 rounded-full blur-3xl"
             animate={{
-              scale: [1, 1.2, 1],
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neon-blue/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute top-3/4 left-2/3 w-64 h-64 bg-neon-green/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.4, 1],
               opacity: [0.2, 0.4, 0.2],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
 
@@ -288,80 +332,133 @@ export default function About() {
               Meet Our <span className="text-gradient-primary">Dream Team</span>
             </motion.h2>
             <motion.p 
-              className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               Passionate professionals who turn bold ideas into extraordinary digital experiences
             </motion.p>
+            
+            {/* Team intro badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-4 mb-16"
+            >
+              {[
+                { icon: Users, text: "Expert Team", color: "neon-blue" },
+                { icon: Shield, text: "Trusted Partners", color: "neon-green" },
+                { icon: Target, text: "Results Focused", color: "neon-pink" }
+              ].map((badge, index) => (
+                <motion.div
+                  key={badge.text}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full bg-background/60 backdrop-blur-sm border border-${badge.color}/30 hover:border-${badge.color}/60 transition-all duration-300`}
+                >
+                  <badge.icon className={`text-${badge.color} w-4 h-4`} />
+                  <span className="text-sm font-medium">{badge.text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Enhanced Team Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {team.map((member, index) => (
               <MagneticWrapper key={member.name} strength={0.15}>
                 <motion.div
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  transition={{ duration: 0.7, delay: index * 0.15 }}
                   className="group h-full"
                 >
-                  <HolographicCard className="h-full">
-                    <CardContent className="p-8 text-center h-full flex flex-col">
-                      <div className="relative mb-6">
+                  <HolographicCard className="h-full overflow-hidden">
+                    <CardContent className="p-0 h-full">
+                      {/* Profile Image Section */}
+                      <div className="relative p-8 pb-4">
                         <motion.div
-                          className="relative"
+                          className="relative mx-auto w-32 h-32"
                           whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: 0.4 }}
                         >
-                          <div className={`absolute inset-0 bg-gradient-to-r from-${member.color}/20 to-${member.color}/40 rounded-full blur-lg group-hover:blur-xl transition-all duration-300`} />
+                          {/* Glowing background */}
+                          <div className={`absolute inset-0 bg-gradient-to-r from-${member.color}/30 to-${member.color}/60 rounded-full blur-lg group-hover:blur-xl transition-all duration-500 animate-pulse`} />
+                          
+                          {/* Profile image */}
                           <img 
                             src={member.image} 
                             alt={member.name}
-                            className={`w-28 h-28 rounded-full mx-auto border-3 border-${member.color}/50 group-hover:border-${member.color} transition-all duration-300 relative z-10`}
+                            className={`w-full h-full rounded-full object-cover border-4 border-${member.color}/50 group-hover:border-${member.color} transition-all duration-500 relative z-10 shadow-xl`}
                           />
+                          
+                          {/* Status indicator */}
+                          <motion.div
+                            className={`absolute -bottom-2 -right-2 w-8 h-8 bg-${member.color} rounded-full border-3 border-background flex items-center justify-center`}
+                            animate={{ 
+                              scale: [1, 1.1, 1],
+                              rotate: [0, 180, 360]
+                            }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                          >
+                            <div className="w-2 h-2 bg-background rounded-full" />
+                          </motion.div>
                         </motion.div>
-                        
-                        {/* Floating decoration */}
-                        <motion.div
-                          className={`absolute -top-2 -right-2 w-6 h-6 bg-${member.color} rounded-full opacity-80`}
-                          animate={{ 
-                            scale: [1, 1.2, 1],
-                            opacity: [0.8, 1, 0.8]
-                          }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
                       </div>
                       
-                      <div className="flex-1 flex flex-col justify-center">
+                      {/* Member Info */}
+                      <div className="px-8 pb-6 text-center">
                         <motion.h3 
-                          className={`font-black text-xl mb-2 text-${member.color} group-hover:scale-105 transition-transform duration-300`}
+                          className={`font-black text-xl mb-1 text-${member.color} group-hover:scale-105 transition-transform duration-300`}
                         >
                           {member.name}
                         </motion.h3>
-                        <p className="text-muted-foreground font-medium mb-4">{member.position}</p>
+                        <p className="text-muted-foreground font-semibold mb-2">{member.position}</p>
+                        <p className="text-sm text-muted-foreground/80 mb-4">{member.specialty}</p>
                         
-                        {/* Skills or specialization indicators */}
+                        {/* Experience badge */}
                         <motion.div
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                          className="flex justify-center gap-2 mt-auto"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                          className={`inline-flex items-center px-3 py-1 rounded-full bg-${member.color}/10 border border-${member.color}/20 mb-4`}
                         >
-                          {[1, 2, 3].map((dot) => (
-                            <motion.div
-                              key={dot}
-                              className={`w-2 h-2 bg-${member.color}/60 rounded-full`}
-                              animate={{ scale: [1, 1.3, 1] }}
-                              transition={{ 
-                                duration: 1.5, 
-                                repeat: Infinity, 
-                                delay: dot * 0.2 
-                              }}
-                            />
+                          <span className={`text-xs font-bold text-${member.color}`}>{member.experience}</span>
+                        </motion.div>
+                        
+                        {/* Skills */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
+                          className="flex flex-wrap justify-center gap-1"
+                        >
+                          {member.skills.slice(0, 3).map((skill, skillIndex) => (
+                            <motion.span
+                              key={skill}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.4, delay: 1.2 + skillIndex * 0.1 }}
+                              className="text-xs px-2 py-1 bg-muted/50 rounded-md text-muted-foreground hover:bg-muted transition-colors duration-200"
+                            >
+                              {skill}
+                            </motion.span>
                           ))}
+                          {member.skills.length > 3 && (
+                            <span className="text-xs px-2 py-1 bg-muted/30 rounded-md text-muted-foreground/60">
+                              +{member.skills.length - 3}
+                            </span>
+                          )}
                         </motion.div>
                       </div>
+                      
+                      {/* Hover overlay */}
+                      <motion.div
+                        className={`absolute inset-0 bg-gradient-to-t from-${member.color}/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
+                      />
                     </CardContent>
                   </HolographicCard>
                 </motion.div>
@@ -369,26 +466,51 @@ export default function About() {
             ))}
           </div>
 
-          {/* Team stats */}
+          {/* Enhanced Team Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mt-20"
+            className="text-center"
           >
-            <div className="grid md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50">
-                <div className="text-3xl font-black text-neon-blue mb-2">15+</div>
-                <div className="text-sm text-muted-foreground">Team Members</div>
-              </div>
-              <div className="p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50">
-                <div className="text-3xl font-black text-neon-green mb-2">8+</div>
-                <div className="text-sm text-muted-foreground">Specializations</div>
-              </div>
-              <div className="p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50">
-                <div className="text-3xl font-black text-neon-pink mb-2">4.9★</div>
-                <div className="text-sm text-muted-foreground">Team Rating</div>
-              </div>
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="text-2xl font-bold mb-8 text-muted-foreground"
+            >
+              Team Excellence Metrics
+            </motion.h3>
+            
+            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                { number: "15+", label: "Team Members", color: "neon-blue", icon: Users },
+                { number: "8+", label: "Specializations", color: "neon-green", icon: Target },
+                { number: "4.9★", label: "Team Rating", color: "neon-pink", icon: Award },
+                { number: "24/7", label: "Availability", color: "neon-blue", icon: Shield }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
+                  className="group"
+                >
+                  <HolographicCard className="p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.8 }}
+                      className={`w-12 h-12 bg-gradient-to-r from-${stat.color}/20 to-${stat.color}/40 rounded-xl flex items-center justify-center mx-auto mb-3`}
+                    >
+                      <stat.icon className={`text-${stat.color} w-6 h-6`} />
+                    </motion.div>
+                    <div className={`text-3xl font-black text-${stat.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                  </HolographicCard>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
