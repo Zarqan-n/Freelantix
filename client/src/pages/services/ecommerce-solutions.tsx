@@ -79,46 +79,49 @@ const successStories = [
   }
 ];
 
-const packages = [
+const solutionTypes = [
   {
     title: "Startup Store",
     description: "Perfect for new businesses entering ecommerce",
-    price: "Starting at $8,000",
     features: [
       "Up to 100 products",
       "Payment gateway setup",
       "Responsive design",
       "Basic SEO",
       "Order management",
-      "Customer support system"
+      "Customer support system",
+      "Mobile optimization",
+      "Social media integration"
     ],
     highlight: false
   },
   {
     title: "Growth Platform",
     description: "Designed for scaling businesses with advanced needs",
-    price: "Starting at $20,000",
     features: [
       "Unlimited products",
       "Multi-payment options",
       "Advanced analytics",
       "Inventory management",
       "Marketing automation",
-      "API integrations"
+      "API integrations",
+      "Multi-currency support",
+      "Advanced reporting"
     ],
     highlight: true
   },
   {
     title: "Enterprise Solution",
     description: "Custom-built for large-scale operations",
-    price: "Starting at $50,000",
     features: [
       "Custom development",
       "Multi-store management",
       "Advanced security",
       "Dedicated support",
       "Performance optimization",
-      "Ongoing maintenance"
+      "Ongoing maintenance",
+      "Global deployment",
+      "Custom integrations"
     ],
     highlight: false
   }
@@ -378,25 +381,25 @@ export default function EcommerceSolutions() {
             className="text-center mb-20"
           >
             <h2 className="font-black mb-8">
-              <span className="text-gradient-secondary">Investment</span> Packages
+              <span className="text-gradient-secondary">Solution</span> Types
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Transparent pricing for every stage of your ecommerce journey.
+              Comprehensive ecommerce solutions for every stage of your business journey.
             </p>
           </motion.div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
+            {solutionTypes.map((solution, index) => (
               <motion.div
-                key={pkg.title}
+                key={solution.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={pkg.highlight ? "scale-105" : ""}
+                className={solution.highlight ? "scale-105" : ""}
               >
                 <MorphingCard>
-                  <div className={`card-premium p-8 h-full text-center relative ${pkg.highlight ? 'ring-2 ring-neon-green/30' : ''}`}>
-                    {pkg.highlight && (
+                  <div className={`card-premium p-8 h-full text-center relative ${solution.highlight ? 'ring-2 ring-neon-green/30' : ''}`}>
+                    {solution.highlight && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                         <div className="bg-neon-green text-background px-4 py-1 rounded-full text-xs font-bold">
                           MOST POPULAR
@@ -404,16 +407,13 @@ export default function EcommerceSolutions() {
                       </div>
                     )}
                     <h3 className="text-xl font-bold mb-4 text-foreground">
-                      {pkg.title}
+                      {solution.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6">
-                      {pkg.description}
+                    <p className="text-muted-foreground mb-8">
+                      {solution.description}
                     </p>
-                    <div className="text-2xl font-black text-gradient-primary mb-8">
-                      {pkg.price}
-                    </div>
                     <ul className="space-y-3 mb-8">
-                      {pkg.features.map((feature, idx) => (
+                      {solution.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-sm">
                           <CheckCircle className="w-4 h-4 text-neon-green flex-shrink-0" />
                           {feature}
@@ -422,8 +422,8 @@ export default function EcommerceSolutions() {
                     </ul>
                     <Link href="/contact">
                       <MagneticButton strength={0.2}>
-                        <Button className={`w-full ${pkg.highlight ? 'btn-premium gradient-primary text-background' : 'btn-premium gradient-secondary text-background'}`}>
-                          Get Started
+                        <Button className={`w-full ${solution.highlight ? 'btn-premium gradient-primary text-background' : 'btn-premium gradient-secondary text-background'}`}>
+                          Learn More
                         </Button>
                       </MagneticButton>
                     </Link>

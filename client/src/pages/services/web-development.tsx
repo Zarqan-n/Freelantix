@@ -47,20 +47,17 @@ const projectTypes = [
   {
     title: "Corporate Websites",
     description: "Professional business websites that establish authority and drive conversions",
-    price: "Starting at $5,000",
-    features: ["Custom Design", "CMS Integration", "SEO Optimization", "Analytics Setup"]
+    features: ["Custom Design", "CMS Integration", "SEO Optimization", "Analytics Setup", "Mobile Responsive", "Performance Optimized"]
   },
   {
     title: "Web Applications",
     description: "Complex web applications with advanced functionality and user management",
-    price: "Starting at $15,000",
-    features: ["User Authentication", "Database Integration", "API Development", "Admin Panel"]
+    features: ["User Authentication", "Database Integration", "API Development", "Admin Panel", "Real-time Features", "Cloud Deployment"]
   },
   {
     title: "E-commerce Platforms",
     description: "Full-featured online stores with payment processing and inventory management",
-    price: "Starting at $10,000",
-    features: ["Payment Gateway", "Inventory System", "Order Management", "Customer Portal"]
+    features: ["Payment Gateway", "Inventory System", "Order Management", "Customer Portal", "Analytics Dashboard", "Multi-platform Support"]
   }
 ];
 
@@ -239,7 +236,7 @@ export default function WebDevelopment() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Project Types Section */}
       <section className="py-32 relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -249,10 +246,10 @@ export default function WebDevelopment() {
             className="text-center mb-20"
           >
             <h2 className="font-black mb-8">
-              <span className="text-gradient-secondary">Project Types</span> & Investment
+              Our <span className="text-gradient-secondary">Specializations</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Transparent pricing for every type of web development project.
+              Comprehensive web development solutions tailored to your business needs.
             </p>
           </motion.div>
           
@@ -269,12 +266,9 @@ export default function WebDevelopment() {
                     <h3 className="text-xl font-bold mb-4 text-foreground">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6">
+                    <p className="text-muted-foreground mb-8">
                       {project.description}
                     </p>
-                    <div className="text-2xl font-black text-gradient-primary mb-6">
-                      {project.price}
-                    </div>
                     <ul className="space-y-3 mb-8">
                       {project.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-sm">
@@ -286,7 +280,7 @@ export default function WebDevelopment() {
                     <Link href="/contact">
                       <MagneticButton strength={0.2}>
                         <Button className="w-full btn-premium gradient-primary text-background">
-                          Get Started
+                          Learn More
                         </Button>
                       </MagneticButton>
                     </Link>
