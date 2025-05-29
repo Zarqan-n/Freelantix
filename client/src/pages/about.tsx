@@ -6,6 +6,7 @@ import ParticleSystem from "@/components/ui/particle-system";
 import MagneticWrapper from "@/components/ui/magnetic-wrapper";
 import HolographicCard from "@/components/ui/holographic-card";
 import MorphingCard from "@/components/ui/morphing-card";
+import zarqanImage from "@assets/Screenshot 2025-05-29 172750.png";
 
 const values = [
   {
@@ -36,9 +37,9 @@ const values = [
 
 const team = [
   {
-    name: "Alex Rodriguez",
+    name: "Zarqan Nazeer",
     position: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+    image: zarqanImage,
     color: "neon-blue"
   },
   {
@@ -48,13 +49,13 @@ const team = [
     color: "neon-green"
   },
   {
-    name: "David Kim",
+    name: "Zeeshan Ahmed",
     position: "Strategy Consultant",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
     color: "neon-pink"
   },
   {
-    name: "Emma Thompson",
+    name: "Md Furkan",
     position: "UX Designer",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&crop=face",
     color: "neon-blue"
