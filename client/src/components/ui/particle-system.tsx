@@ -33,12 +33,16 @@ export default function ParticleSystem({
 
     const container = containerRef.current;
     const rect = container.getBoundingClientRect();
+    
+    // Ensure we have valid dimensions
+    const width = rect.width || 800;
+    const height = rect.height || 600;
 
     // Initialize particles
     particlesRef.current = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
-      x: Math.random() * rect.width,
-      y: Math.random() * rect.height,
+      x: Math.random() * width,
+      y: Math.random() * height,
       size: Math.random() * 3 + 1,
       opacity: Math.random() * 0.5 + 0.2,
       speedX: (Math.random() - 0.5) * 0.5,
@@ -56,14 +60,24 @@ export default function ParticleSystem({
 
     const animate = () => {
       const rect = container.getBoundingClientRect();
+      const currentWidth = rect.width || 800;
+      const currentHeight = rect.height || 600;
       
       particlesRef.current.forEach(particle => {
+        // Validate particle position
+        if (isNaN(particle.x) || isNaN(particle.y)) {
+          particle.x = Math.random() * currentWidth;
+          particle.y = Math.random() * currentHeight;
+          particle.speedX = (Math.random() - 0.5) * 0.5;
+          particle.speedY = (Math.random() - 0.5) * 0.5;
+        }
+
         // Mouse attraction
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 150) {
+        if (distance < 150 && !isNaN(distance) && distance > 0) {
           const force = (150 - distance) / 150;
           particle.speedX += (dx / distance) * force * 0.01;
           particle.speedY += (dy / distance) * force * 0.01;
@@ -74,13 +88,13 @@ export default function ParticleSystem({
         particle.y += particle.speedY;
 
         // Boundary collision
-        if (particle.x < 0 || particle.x > rect.width) {
+        if (particle.x < 0 || particle.x > currentWidth) {
           particle.speedX *= -0.8;
-          particle.x = Math.max(0, Math.min(rect.width, particle.x));
+          particle.x = Math.max(0, Math.min(currentWidth, particle.x));
         }
-        if (particle.y < 0 || particle.y > rect.height) {
+        if (particle.y < 0 || particle.y > currentHeight) {
           particle.speedY *= -0.8;
-          particle.y = Math.max(0, Math.min(rect.height, particle.y));
+          particle.y = Math.max(0, Math.min(currentHeight, particle.y));
         }
 
         // Friction
@@ -113,8 +127,8 @@ export default function ParticleSystem({
             height: particle.size,
             backgroundColor: particle.color,
             opacity: particle.opacity,
-            left: particle.x,
-            top: particle.y,
+            left: isNaN(particle.x) ? 0 : particle.x,
+            top: isNaN(particle.y) ? 0 : particle.y,
           }}
           animate={{
             scale: [1, 1.2, 1],
