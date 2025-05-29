@@ -18,25 +18,29 @@ const services = [
     icon: Code,
     title: "Web Development",
     description: "Custom websites and web applications built with cutting-edge technologies",
-    color: "neon-blue"
+    color: "neon-blue",
+    link: "/services/web-development"
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     description: "Beautiful, intuitive designs that engage users and drive conversions",
-    color: "neon-green"
+    color: "neon-green",
+    link: "/services/ui-ux-design"
   },
   {
     icon: ShoppingCart,
     title: "eCommerce Solutions",
     description: "Complete online stores that maximize sales and customer satisfaction",
-    color: "neon-pink"
+    color: "neon-pink",
+    link: "/services/ecommerce-solutions"
   },
   {
     icon: Target,
     title: "Digital Strategy",
     description: "Data-driven strategies to optimize your digital presence and ROI",
-    color: "neon-blue"
+    color: "neon-blue",
+    link: "/services/digital-strategy"
   }
 ];
 

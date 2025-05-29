@@ -4,10 +4,11 @@ import { Link } from "wouter";
 
 interface ServiceCardProps {
   service: {
-    icon: React.ComponentType<{ size?: number }>;
+    icon: React.ComponentType<any>;
     title: string;
     description: string;
     color: string;
+    link?: string;
   };
   index: number;
 }
@@ -82,7 +83,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
             {service.description}
           </motion.p>
           
-          <Link href="/services">
+          <Link href={service.link || "/services"}>
             <motion.span 
               className={`${service.color} hover:text-foreground transition-all duration-300 cursor-pointer font-semibold relative inline-block`}
               whileHover={{ 
