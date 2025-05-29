@@ -54,6 +54,7 @@ export default function Header() {
                         ? "bg-white/5"
                         : "hover:bg-white/5"
                     }`}
+                    onClick={() => window.scrollTo(0, 0)}
                   >
                     <span
                       className={`font-medium transition-colors duration-300 ${
@@ -80,7 +81,10 @@ export default function Header() {
           {/* Premium CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/contact">
-              <Button className="btn-premium gradient-primary text-background px-8 py-3 font-semibold group">
+              <Button 
+                className="btn-premium gradient-primary text-background px-8 py-3 font-semibold group"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Get Started
                 <motion.span
                   className="ml-2 inline-block"
@@ -134,7 +138,10 @@ export default function Header() {
                             ? "glass-effect border border-neon-blue/30 neon-blue"
                             : "text-muted-foreground hover:text-foreground hover:glass-effect hover:border hover:border-border/20"
                         }`}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         <span className="font-medium">{item.name}</span>
                       </div>
@@ -152,7 +159,10 @@ export default function Header() {
                   <Link href="/contact">
                     <Button 
                       className="w-full btn-premium gradient-primary text-background py-4 font-semibold"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        window.scrollTo(0, 0);
+                      }}
                     >
                       Get Started
                     </Button>
