@@ -21,7 +21,7 @@ export default function Header() {
       <nav className="container mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
           {/* Clean Logo */}
-          <Link href="/">
+          <Link href="/" onClick={() => window.scrollTo(0, 0)}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -47,14 +47,13 @@ export default function Header() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                <Link href={item.href}>
+                <Link href={item.href} onClick={() => window.scrollTo(0, 0)}>
                   <div
                     className={`relative px-6 py-3 rounded-xl cursor-pointer transition-all duration-300 group ${
                       location === item.href
                         ? "bg-white/5"
                         : "hover:bg-white/5"
                     }`}
-                    onClick={() => window.scrollTo(0, 0)}
                   >
                     <span
                       className={`font-medium transition-colors duration-300 ${
