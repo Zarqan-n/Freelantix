@@ -12,6 +12,9 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
+  if (url === '/api/contact') {
+    url = '/.netlify/functions/contact';
+  }
   const res = await fetch(url, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},

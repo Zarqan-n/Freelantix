@@ -38,22 +38,13 @@ const values = [
 
 const team = [
   {
-    name: "Zarqan Nazeer",
+    name: "Zarqan",
     position: "Lead Developer",
     image: zarqanImage,
     color: "neon-blue",
     specialty: "Full-Stack Architecture",
     experience: "5+ Years",
     skills: ["React", "Node.js", "TypeScript", "AWS"]
-  },
-  {
-    name: "Maya Patel",
-    position: "Creative Director",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
-    color: "neon-green",
-    specialty: "Brand & Visual Identity",
-    experience: "7+ Years",
-    skills: ["UI/UX", "Branding", "Motion Design", "Figma"]
   },
   {
     name: "Zeeshan Ahmed",
@@ -67,11 +58,20 @@ const team = [
   {
     name: "Md Furkan",
     position: "UX Designer",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww",
     color: "neon-blue",
     specialty: "User Experience Design",
     experience: "4+ Years",
     skills: ["User Research", "Prototyping", "Design Systems", "Testing"]
+  },
+  {
+    name: "Maya Patel",
+    position: "Creative Director",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
+    color: "neon-green",
+    specialty: "Brand & Visual Identity",
+    experience: "7+ Years",
+    skills: ["UI/UX", "Branding", "Motion Design", "Figma"]
   }
 ];
 

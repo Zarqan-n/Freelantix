@@ -284,11 +284,11 @@ export default function Home() {
                       <motion.div 
                         className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 premium-border rounded-full p-1 preserve-3d"
                         animate={{ 
-                          rotateY: [0, 360],
-                          scale: [1, 1.05, 1]
+                          rotate: [0, 360],
+                          scale: [1, 1, 1]
                         }}
                         transition={{ 
-                          rotateY: { duration: 20, repeat: Infinity, ease: "linear" },
+                          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                           scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                         }}
                         whileHover={{ 
