@@ -3,6 +3,8 @@ import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import clogo from "../../assets/clogo.png";
+
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -17,8 +19,8 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-sm">
-      <nav className="container mx-auto px-8 py-6">
+    <header className="fixed top-0 w-full z-50 bg-black backdrop-blur-sm">
+      <nav className="container mx-auto px-2 py-2">
         <div className="flex items-center justify-between">
           {/* Clean Logo */}
           <Link href="/" onClick={() => window.scrollTo(0, 0)}>
@@ -28,12 +30,13 @@ export default function Header() {
               transition={{ duration: 0.5 }}
               className="relative group cursor-pointer"
             >
-              <div className="flex items-center gap-3 px-2 py-1">
-                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-background font-black text-sm">FX</span>
-                </div>
-                <span className="text-xl font-black text-gradient-primary">Freelantix</span>
+              <div className="flex items-center gap-1 px-2 py-1">
+                <img src={clogo} alt="Freelantix logo" className="w-12 h-12 object-contain" />
+                <span className="text-xl font-black bg-gradient-to-r from-blue-400 via-pink-400 to-purple-700 bg-clip-text text-transparent">
+                  Freelantix
+                </span>
               </div>
+
             </motion.div>
           </Link>
 
@@ -49,18 +52,16 @@ export default function Header() {
               >
                 <Link href={item.href} onClick={() => window.scrollTo(0, 0)}>
                   <div
-                    className={`relative px-6 py-3 rounded-xl cursor-pointer transition-all duration-300 group ${
-                      location === item.href
-                        ? "bg-white/5"
-                        : "hover:bg-white/5"
-                    }`}
+                    className={`relative px-6 py-3 rounded-xl cursor-pointer transition-all duration-300 group ${location === item.href
+                      ? "bg-white/5"
+                      : "hover:bg-white/5"
+                      }`}
                   >
                     <span
-                      className={`font-medium transition-colors duration-300 ${
-                        location === item.href
-                          ? "neon-blue"
-                          : "text-muted-foreground group-hover:text-foreground"
-                      }`}
+                      className={`font-medium transition-colors duration-300 ${location === item.href
+                        ? "neon-blue"
+                        : "text-muted-foreground group-hover:text-foreground"
+                        }`}
                     >
                       {item.name}
                     </span>
@@ -80,7 +81,7 @@ export default function Header() {
           {/* Premium CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/contact">
-              <Button 
+              <Button
                 className="btn-premium gradient-primary text-background px-8 py-3 font-semibold group"
                 onClick={() => window.scrollTo(0, 0)}
               >
@@ -132,11 +133,10 @@ export default function Header() {
                   >
                     <Link href={item.href}>
                       <div
-                        className={`block cursor-pointer p-4 rounded-xl transition-all duration-300 ${
-                          location === item.href
-                            ? "glass-effect border border-neon-blue/30 neon-blue"
-                            : "text-muted-foreground hover:text-foreground hover:glass-effect hover:border hover:border-border/20"
-                        }`}
+                        className={`block cursor-pointer p-4 rounded-xl transition-all duration-300 ${location === item.href
+                          ? "glass-effect border border-neon-blue/30 neon-blue"
+                          : "text-muted-foreground hover:text-foreground hover:glass-effect hover:border hover:border-border/20"
+                          }`}
                         onClick={() => {
                           setIsMobileMenuOpen(false);
                           window.scrollTo(0, 0);
@@ -147,7 +147,7 @@ export default function Header() {
                     </Link>
                   </motion.div>
                 ))}
-                
+
                 {/* Mobile CTA Button */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -156,7 +156,7 @@ export default function Header() {
                   className="pt-4 border-t border-border/20 mt-4"
                 >
                   <Link href="/contact">
-                    <Button 
+                    <Button
                       className="w-full btn-premium gradient-primary text-background py-4 font-semibold"
                       onClick={() => {
                         setIsMobileMenuOpen(false);

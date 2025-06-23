@@ -12,6 +12,7 @@ import AdvancedBackground from "@/components/ui/advanced-background";
 import SEOHead from "@/components/seo-head";
 import { WebsiteSchema } from "@/components/structured-data";
 import { Link } from "wouter";
+import clogo from "../assets/clogo.png";
 
 const services = [
   {
@@ -45,9 +46,9 @@ const services = [
 ];
 
 const stats = [
-  { number: 50, suffix: "+", label: "Trusted Businesses" },
-  { number: 100, suffix: "+", label: "Projects Completed" },
-  { number: 5, suffix: "+", label: "Years Experience" }
+  { number: 43, suffix: "+", label: "Trusted Businesses" },
+  { number: 50, suffix: "+", label: "Projects Completed" },
+  { number: 3, suffix: "+", label: "Years Experience" }
 ];
 
 const revenueFeatures = [
@@ -89,14 +90,14 @@ const processSteps = [
     icon: BarChart3
   },
   {
-    step: "02", 
+    step: "02",
     title: "UI/UX Optimization",
     description: "Design user-centric interfaces that guide customers seamlessly through your conversion funnel",
     icon: Palette
   },
   {
     step: "03",
-    title: "Performance Enhancement", 
+    title: "Performance Enhancement",
     description: "Implement cutting-edge technologies for blazing-fast load times and smooth interactions",
     icon: Rocket
   },
@@ -126,7 +127,7 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      <SEOHead 
+      <SEOHead
         title="Freelantix - Premium Digital Solutions & Web Development Services"
         description="Transform your business with cutting-edge web development, UI/UX design, eCommerce solutions, and digital strategy. Trusted by 50+ businesses worldwide."
         keywords="web development, UI UX design, eCommerce solutions, digital strategy, premium digital agency, custom websites, web applications"
@@ -144,7 +145,7 @@ export default function Home() {
           }
         }}
       />
-      <WebsiteSchema 
+      <WebsiteSchema
         name="Freelantix"
         url="https://freelantix.com"
         description="Premium digital solutions including web development, UI/UX design, eCommerce solutions, and digital strategy services"
@@ -155,11 +156,11 @@ export default function Home() {
         <AnimatedBackground />
         <AdvancedBackground variant="constellation" />
         <ParticleSystem particleCount={40} />
-        
+
         {/* Premium floating elements */}
         <div className="absolute top-1/4 left-1/3 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+
         <div className="container mx-auto px-6 py-32 relative z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -168,7 +169,7 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="relative"
             >
-              <motion.h1 
+              <motion.h1
                 className="font-black mb-10 leading-[0.9] tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -177,8 +178,8 @@ export default function Home() {
                 Building <span className="text-gradient-primary">Cutting-Edge</span><br />
                 Digital <span className="text-shimmer">Experiences</span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-xl lg:text-2xl text-muted-foreground mb-12 font-light leading-relaxed max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -186,8 +187,8 @@ export default function Home() {
               >
                 Premium digital solutions that transform businesses and accelerate growth through innovation and excellence
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -196,7 +197,7 @@ export default function Home() {
                 <Link href="/contact">
                   <MagneticButton strength={0.3}>
                     <Button size="lg" className="btn-premium gradient-primary text-background hover:shadow-2xl px-10 py-6 text-lg font-semibold group">
-                      Get Started 
+                      Get Started
                       <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </Button>
                   </MagneticButton>
@@ -209,7 +210,7 @@ export default function Home() {
                   </MagneticButton>
                 </Link>
               </motion.div>
-              
+
               {/* Premium stats preview */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -218,11 +219,11 @@ export default function Home() {
                 className="flex items-center gap-8 mt-16 pt-8 border-t border-border/20"
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient-primary">150+</div>
+                  <div className="text-2xl font-bold text-gradient-primary">15+</div>
                   <div className="text-sm text-muted-foreground">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient-secondary">98%</div>
+                  <div className="text-2xl font-bold text-gradient-secondary">92%</div>
                   <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                 </div>
                 <div className="text-center">
@@ -231,7 +232,7 @@ export default function Home() {
                 </div>
               </motion.div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -243,11 +244,11 @@ export default function Home() {
                 {/* Ambient background effects */}
                 <div className="absolute -inset-12 gradient-primary rounded-3xl opacity-10 blur-3xl group-hover:opacity-15 transition-all duration-1000"></div>
                 <div className="absolute -inset-8 gradient-secondary rounded-2xl opacity-8 blur-2xl group-hover:opacity-12 transition-all duration-1000"></div>
-                
+
                 {/* Main premium dashboard container - Enhanced responsiveness */}
                 <div className="relative premium-border rounded-2xl sm:rounded-3xl p-2 sm:p-3 group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-transform duration-700">
                   <div className="premium-border-content rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 min-h-[350px] sm:min-h-[450px] lg:min-h-[600px] flex flex-col justify-center items-center relative overflow-hidden">
-                    
+
                     {/* Revolutionary Holographic Central Hub */}
                     <motion.div
                       className="relative mb-12 sm:mb-16 lg:mb-20 perspective-1000"
@@ -263,7 +264,7 @@ export default function Home() {
                       >
                         <div className="w-full h-full border-2 border-neon-blue/30 rounded-full"></div>
                       </motion.div>
-                      
+
                       <motion.div
                         className="absolute inset-0 w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 -m-2 sm:-m-3 lg:-m-4"
                         animate={{ rotate: [360, 0] }}
@@ -271,27 +272,27 @@ export default function Home() {
                       >
                         <div className="w-full h-full border border-neon-pink/40 rounded-full border-dashed"></div>
                       </motion.div>
-                      
+
                       <motion.div
                         className="absolute inset-0 w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 -m-1 sm:-m-1.5 lg:-m-2"
                         animate={{ rotate: [0, 360] }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                       >
-                        <div className="w-full h-full border border-neon-green/30 rounded-full"></div>
+
                       </motion.div>
-                      
+
                       {/* Central holographic logo - Responsive sizing */}
-                      <motion.div 
+                      <motion.div
                         className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 premium-border rounded-full p-1 preserve-3d"
-                        animate={{ 
+                        animate={{
                           rotate: [0, 360],
                           scale: [1, 1, 1]
                         }}
-                        transition={{ 
+                        transition={{
                           rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                           scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                         }}
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.1,
                           rotateX: 15,
                           rotateY: 15,
@@ -299,7 +300,8 @@ export default function Home() {
                         }}
                       >
                         <div className="premium-border-content rounded-full w-full h-full flex items-center justify-center relative">
-                          {/* Holographic background effect */}
+
+                          {/* Holographic background gradient */}
                           <motion.div
                             className="absolute inset-0 bg-gradient-to-br from-neon-blue/20 via-neon-pink/20 to-neon-green/20 rounded-full blur-sm"
                             animate={{
@@ -312,30 +314,8 @@ export default function Home() {
                               ease: "easeInOut"
                             }}
                           />
-                          
-                          {/* Logo with holographic effect - Responsive text size */}
-                          <motion.div 
-                            className="text-2xl sm:text-3xl lg:text-5xl font-black relative z-10"
-                            style={{
-                              background: 'linear-gradient(45deg, #1ae7ff, #ff6b9d, #00ff88, #c471ed)',
-                              backgroundSize: '400% 400%',
-                              WebkitBackgroundClip: 'text',
-                              WebkitTextFillColor: 'transparent',
-                              filter: 'drop-shadow(0 0 20px rgba(26, 231, 255, 0.5))'
-                            }}
-                            animate={{
-                              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                            }}
-                            transition={{
-                              duration: 5,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                          >
-                            FX
-                          </motion.div>
-                          
-                          {/* Particle burst effect - Reduced for mobile */}
+
+                          {/* Particle burst animation */}
                           {[...Array(6)].map((_, i) => (
                             <motion.div
                               key={i}
@@ -359,9 +339,17 @@ export default function Home() {
                               }}
                             />
                           ))}
+
+                          {/* ✅ Your logo here */}
+                          <img
+                            src={clogo}
+                            alt="Freelantix Logo"
+                            className="w-16 h-16 sm:w-20 sm:h-20 z-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
+                          />
                         </div>
                       </motion.div>
-                      
+
+
                       {/* Orbiting data points - Responsive positioning */}
                       {[...Array(4)].map((_, i) => (
                         <motion.div
@@ -393,7 +381,7 @@ export default function Home() {
                         />
                       ))}
                     </motion.div>
-                    
+
                     {/* Revolutionary 3D Floating Metrics Grid - Enhanced responsive grid */}
                     <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-6 xl:gap-8 w-full max-w-[280px] sm:max-w-md lg:max-w-lg xl:max-w-2xl perspective-1000">
                       {[
@@ -405,20 +393,20 @@ export default function Home() {
                         <motion.div
                           key={metric.label}
                           className="relative group preserve-3d"
-                          initial={{ 
-                            opacity: 0, 
-                            y: 50, 
+                          initial={{
+                            opacity: 0,
+                            y: 50,
                             rotateX: -45,
                             scale: 0.8
                           }}
-                          animate={{ 
-                            opacity: 1, 
-                            y: 0, 
+                          animate={{
+                            opacity: 1,
+                            y: 0,
                             rotateX: 0,
                             scale: 1
                           }}
-                          transition={{ 
-                            duration: 1, 
+                          transition={{
+                            duration: 1,
                             delay: metric.delay,
                             type: "spring",
                             damping: 20,
@@ -435,16 +423,16 @@ export default function Home() {
                           {/* Holographic card container - Responsive padding */}
                           <motion.div
                             className="glass-effect rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-6 xl:p-8 text-center relative overflow-hidden border border-white/10 min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] xl:min-h-[140px]"
-                            animate={{ 
+                            animate={{
                               y: [
-                                index % 2 === 0 ? -4 : 4, 
-                                index % 2 === 0 ? 4 : -4, 
+                                index % 2 === 0 ? -4 : 4,
+                                index % 2 === 0 ? 4 : -4,
                                 index % 2 === 0 ? -4 : 4
                               ]
                             }}
-                            transition={{ 
-                              duration: 4 + index * 0.5, 
-                              repeat: Infinity, 
+                            transition={{
+                              duration: 4 + index * 0.5,
+                              repeat: Infinity,
                               ease: "easeInOut",
                               delay: index * 0.3
                             }}
@@ -465,7 +453,7 @@ export default function Home() {
                                 ease: "easeInOut"
                               }}
                             />
-                            
+
                             {/* Floating particles - Reduced for mobile */}
                             <div className="absolute inset-0 overflow-hidden">
                               {[...Array(3)].map((_, i) => (
@@ -493,9 +481,9 @@ export default function Home() {
                                 />
                               ))}
                             </div>
-                            
+
                             {/* Metric value with holographic effect - Enhanced responsive text */}
-                            <motion.div 
+                            <motion.div
                               className={`text-lg sm:text-xl lg:text-2xl xl:text-4xl font-black mb-1 sm:mb-2 lg:mb-3 xl:mb-4 relative z-10 text-${metric.color}`}
                               style={{
                                 filter: `drop-shadow(0 0 15px var(--${metric.color}))`
@@ -519,9 +507,9 @@ export default function Home() {
                             >
                               {metric.value}
                             </motion.div>
-                            
+
                             {/* Enhanced label - Responsive text */}
-                            <motion.div 
+                            <motion.div
                               className="text-xs sm:text-sm font-semibold text-muted-foreground/80 uppercase tracking-wider relative z-10"
                               animate={{
                                 opacity: [0.7, 1, 0.7]
@@ -535,7 +523,7 @@ export default function Home() {
                             >
                               {metric.label}
                             </motion.div>
-                            
+
                             {/* Holographic corner accents - Responsive sizing */}
                             <div className="absolute top-1 left-1 sm:top-2 sm:left-2 w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 border-l-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <div className="absolute top-1 right-1 sm:top-2 sm:right-2 w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 border-r-2 border-t-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -545,7 +533,7 @@ export default function Home() {
                         </motion.div>
                       ))}
                     </div>
-                    
+
                     {/* Revolutionary data visualization lines */}
                     <motion.svg
                       className="absolute inset-0 w-full h-full pointer-events-none"
@@ -580,15 +568,15 @@ export default function Home() {
                     </motion.svg>
                   </div>
                 </div>
-                
+
                 {/* Elegant floating technology icons - Responsive positioning and sizing */}
                 <motion.div
                   className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 lg:-top-8 lg:-right-8 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 glass-effect rounded-xl sm:rounded-2xl flex items-center justify-center"
-                  animate={{ 
+                  animate={{
                     y: [-4, 4, -4],
                     rotate: [0, 180, 360]
                   }}
-                  transition={{ 
+                  transition={{
                     y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                     rotate: { duration: 20, repeat: Infinity, ease: "linear" }
                   }}
@@ -632,14 +620,14 @@ export default function Home() {
                     ))}
                   </div>
                 </motion.div>
-                
+
                 <motion.div
                   className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 lg:-bottom-6 lg:-left-6 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 glass-effect rounded-xl sm:rounded-2xl flex items-center justify-center"
-                  animate={{ 
+                  animate={{
                     y: [4, -4, 4],
                     rotate: [360, 180, 0]
                   }}
-                  transition={{ 
+                  transition={{
                     y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 },
                     rotate: { duration: 15, repeat: Infinity, ease: "linear" }
                   }}
@@ -648,28 +636,28 @@ export default function Home() {
                     <span className="text-background font-bold text-xs">⚡</span>
                   </div>
                 </motion.div>
-                
+
                 <motion.div
                   className="absolute top-1/3 -right-2 sm:-right-3 lg:-right-4 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 glass-effect rounded-full flex items-center justify-center"
-                  animate={{ 
+                  animate={{
                     x: [0, 4, 0],
                     scale: [1, 1.05, 1]
                   }}
-                  transition={{ 
+                  transition={{
                     x: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 },
                     scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
                   }}
                 >
                   <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 gradient-tertiary rounded-full"></div>
                 </motion.div>
-                
+
                 <motion.div
                   className="absolute bottom-1/3 -left-2 sm:-left-3 lg:-left-4 w-9 h-9 sm:w-11 sm:h-11 lg:w-14 lg:h-14 glass-effect rounded-lg sm:rounded-xl flex items-center justify-center"
-                  animate={{ 
+                  animate={{
                     x: [0, -3, 0],
                     opacity: [0.7, 1, 0.7]
                   }}
-                  transition={{ 
+                  transition={{
                     x: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 },
                     opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" }
                   }}
@@ -694,14 +682,14 @@ export default function Home() {
         }}></div>
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-neon-blue to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-green to-transparent"></div>
-        
+
         {/* Floating particles */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-neon-blue rounded-full opacity-60 animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-neon-pink rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-1/3 left-3/4 w-1.5 h-1.5 bg-neon-green rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-neon-pink rounded-full opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-3/4 w-1.5 h-1.5 bg-neon-green rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -719,7 +707,7 @@ export default function Home() {
                 <span className="text-sm font-semibold text-gradient-primary">PREMIUM SERVICES</span>
               </div>
             </motion.div>
-            
+
             <h2 className="font-black mb-8 text-center">
               Our <span className="text-gradient-primary">Elite</span> Solutions
             </h2>
@@ -727,7 +715,7 @@ export default function Home() {
               Crafted with precision and powered by innovation. Each service is designed to elevate your business to new heights of digital excellence.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -740,7 +728,7 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Premium CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -762,38 +750,38 @@ export default function Home() {
       <section className="py-40 relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background">
         <AdvancedBackground variant="mesh" />
         <ParticleSystem particleCount={25} />
-        
+
         {/* Premium background effects */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/6 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/6 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+          <div className="absolute bottom-1/4 right-1/6 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
         </div>
-        
+
         {/* Floating revenue indicators */}
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
             className="absolute top-20 left-20 text-neon-green text-4xl font-bold opacity-20"
-            animate={{ 
+            animate={{
               y: [-10, 10, -10],
               opacity: [0.2, 0.4, 0.2]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            +$2.5M
+            +$25K
           </motion.div>
           <motion.div
             className="absolute top-40 right-32 text-neon-blue text-3xl font-bold opacity-20"
-            animate={{ 
+            animate={{
               y: [10, -10, 10],
               opacity: [0.2, 0.4, 0.2]
             }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           >
-            +350%
+            +150%
           </motion.div>
           <motion.div
             className="absolute bottom-32 left-1/3 text-neon-pink text-2xl font-bold opacity-20"
-            animate={{ 
+            animate={{
               x: [-5, 5, -5],
               opacity: [0.2, 0.4, 0.2]
             }}
@@ -802,7 +790,7 @@ export default function Home() {
             ROI 450%
           </motion.div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -820,17 +808,17 @@ export default function Home() {
                 <span className="text-sm font-semibold text-gradient-primary">REVENUE ACCELERATION</span>
               </div>
             </motion.div>
-            
+
             <h2 className="font-black mb-8 text-center">
               How We <span className="text-gradient-primary">Skyrocket</span> Your Revenue<br />
               Through <span className="text-gradient-secondary">Premium UI Design</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Every pixel, every interaction, every design decision is strategically crafted to maximize your business growth. 
+              Every pixel, every interaction, every design decision is strategically crafted to maximize your business growth.
               Our data-driven approach to UI/UX design doesn't just look beautiful—it drives measurable revenue increases.
             </p>
           </motion.div>
-          
+
           {/* Revenue Impact Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {revenueFeatures.map((feature, index) => (
@@ -845,15 +833,15 @@ export default function Home() {
                   <div className="card-premium p-8 h-full text-center relative overflow-hidden">
                     {/* Ambient glow effect */}
                     <div className={`absolute inset-0 bg-gradient-to-br from-${feature.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                    
+
                     <div className="relative z-10">
-                      <motion.div 
+                      <motion.div
                         className={`w-16 h-16 mx-auto mb-6 premium-border rounded-2xl p-1`}
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.1,
                           rotate: [0, -10, 10, 0],
                         }}
-                        transition={{ 
+                        transition={{
                           rotate: { duration: 0.6, ease: "easeInOut" },
                           scale: { duration: 0.3 }
                         }}
@@ -862,10 +850,10 @@ export default function Home() {
                           <feature.icon className={`w-8 h-8 text-${feature.color}`} />
                         </div>
                       </motion.div>
-                      
-                      <motion.div 
+
+                      <motion.div
                         className={`text-4xl font-black text-${feature.color} mb-2`}
-                        whileHover={{ 
+                        whileHover={{
                           scale: 1.05,
                           textShadow: "0 0 20px currentColor"
                         }}
@@ -873,11 +861,11 @@ export default function Home() {
                       >
                         +{feature.percentage}
                       </motion.div>
-                      
+
                       <h3 className="text-xl font-bold mb-4 text-foreground">
                         {feature.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
@@ -887,7 +875,7 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Success Story Highlight */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -908,15 +896,15 @@ export default function Home() {
                   </div>
                   <span className="text-2xl font-bold text-gradient-primary">Real Results</span>
                 </motion.div>
-                
+
                 <h3 className="text-3xl font-black mb-6">
-                  "Our e-commerce revenue increased by <span className="text-gradient-secondary">$2.3M annually</span> 
+                  "Our e-commerce revenue increased by <span className="text-gradient-secondary">$250K annually</span>
                   after Freelantix redesigned our user experience"
                 </h3>
-                
+
                 <div className="grid md:grid-cols-3 gap-8 mt-12">
                   <div className="text-center">
-                    <div className="text-3xl font-black text-neon-green mb-2">+340%</div>
+                    <div className="text-3xl font-black text-neon-green mb-2">+140%</div>
                     <div className="text-muted-foreground">Conversion Rate</div>
                   </div>
                   <div className="text-center">
@@ -931,7 +919,7 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Our Process */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -946,7 +934,7 @@ export default function Home() {
               A systematic approach that transforms your digital presence into a revenue-generating powerhouse
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
               <motion.div
@@ -958,23 +946,23 @@ export default function Home() {
               >
                 {/* Connection line */}
                 {index < processSteps.length - 1 && (
-                  <motion.div 
+                  <motion.div
                     className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-neon-blue to-neon-green opacity-30 z-0"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: index * 0.2 }}
                   />
                 )}
-                
+
                 <MorphingCard>
                   <div className="glass-effect rounded-2xl p-8 text-center relative z-10 h-full">
-                    <motion.div 
+                    <motion.div
                       className="w-16 h-16 mx-auto mb-6 premium-border rounded-full p-1"
-                      whileHover={{ 
+                      whileHover={{
                         rotate: 360,
-                        scale: 1.1 
+                        scale: 1.1
                       }}
-                      transition={{ 
+                      transition={{
                         rotate: { duration: 0.8, ease: "easeInOut" },
                         scale: { duration: 0.3 }
                       }}
@@ -983,19 +971,19 @@ export default function Home() {
                         <step.icon className="w-8 h-8 text-neon-blue" />
                       </div>
                     </motion.div>
-                    
-                    <motion.div 
+
+                    <motion.div
                       className="text-lg font-black text-gradient-primary mb-2"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
                       {step.step}
                     </motion.div>
-                    
+
                     <h4 className="text-xl font-bold mb-4 text-foreground">
                       {step.title}
                     </h4>
-                    
+
                     <p className="text-muted-foreground leading-relaxed">
                       {step.description}
                     </p>
@@ -1004,7 +992,7 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          
+
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1044,9 +1032,9 @@ export default function Home() {
         {/* Premium background with floating elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 gradient-primary rounded-full opacity-10 blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 gradient-secondary rounded-full opacity-10 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 gradient-secondary rounded-full opacity-10 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1064,7 +1052,7 @@ export default function Home() {
                 <span className="text-sm font-semibold text-gradient-secondary">PROVEN RESULTS</span>
               </div>
             </motion.div>
-            
+
             <h2 className="font-black mb-8">
               Transforming Ideas into <span className="text-gradient-secondary">Excellence</span>
             </h2>
@@ -1072,7 +1060,7 @@ export default function Home() {
               Our track record speaks for itself. We deliver measurable results that drive business growth.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-3 gap-12 text-center">
             {stats.map((stat, index) => (
               <motion.div
@@ -1096,7 +1084,7 @@ export default function Home() {
         {/* Premium background */}
         <div className="absolute inset-0 gradient-bg"></div>
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-pink to-transparent"></div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1114,7 +1102,7 @@ export default function Home() {
                 <span className="text-sm font-semibold text-gradient-primary">CLIENT TESTIMONIALS</span>
               </div>
             </motion.div>
-            
+
             <h2 className="font-black mb-8">
               What Our <span className="text-gradient-primary">Elite Clients</span> Say
             </h2>
@@ -1122,7 +1110,7 @@ export default function Home() {
               Don't just take our word for it. Hear from the visionary leaders who've transformed their businesses with our premium solutions.
             </p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -1137,12 +1125,12 @@ export default function Home() {
                   <div className="absolute -top-4 -left-4 w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center">
                     <span className="text-background text-3xl font-bold">"</span>
                   </div>
-                  
+
                   {/* Rating stars */}
                   <div className="flex justify-center mb-8">
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
-                        <motion.span 
+                        <motion.span
                           key={i}
                           initial={{ opacity: 0, scale: 0 }}
                           whileInView={{ opacity: 1, scale: 1 }}
@@ -1154,16 +1142,16 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-foreground mb-8 italic leading-relaxed text-center">
                     {testimonial.content}
                   </p>
-                  
+
                   <div className="flex items-center justify-center gap-4">
                     <div className="premium-border rounded-full p-1">
                       <div className="premium-border-content rounded-full">
-                        <img 
-                          src={testimonial.avatar} 
+                        <img
+                          src={testimonial.avatar}
                           alt={testimonial.author}
                           className="w-16 h-16 rounded-full"
                         />
@@ -1178,7 +1166,7 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Trust indicators */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1215,9 +1203,9 @@ export default function Home() {
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-neon-blue via-neon-green to-neon-pink opacity-60"></div>
           <div className="absolute top-1/3 left-1/3 w-96 h-96 gradient-primary rounded-full opacity-5 blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 gradient-secondary rounded-full opacity-5 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
-        
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1236,8 +1224,8 @@ export default function Home() {
                 <span className="text-sm font-bold text-gradient-primary">READY TO TRANSFORM?</span>
               </div>
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               className="font-black mb-10 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1245,8 +1233,8 @@ export default function Home() {
             >
               Ready to Elevate Your <span className="text-gradient-primary">Business Online?</span>
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl mb-12 max-w-3xl mx-auto text-muted-foreground leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1254,8 +1242,8 @@ export default function Home() {
             >
               Join the elite circle of businesses that have transformed their digital presence with Freelantix. Let's create something extraordinary together.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1273,7 +1261,7 @@ export default function Home() {
                 </Button>
               </Link>
             </motion.div>
-            
+
             {/* Premium features highlight */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1288,7 +1276,7 @@ export default function Home() {
                 <h4 className="font-semibold mb-2 text-gradient-primary">Lightning Fast</h4>
                 <p className="text-sm text-muted-foreground">48-hour project kickoff</p>
               </div>
-              
+
               <div className="glass-effect rounded-xl p-6">
                 <div className="w-12 h-12 gradient-secondary rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-background font-bold text-xl">🎯</span>
@@ -1296,7 +1284,7 @@ export default function Home() {
                 <h4 className="font-semibold mb-2 text-gradient-secondary">Precision Delivery</h4>
                 <p className="text-sm text-muted-foreground">On-time, every time</p>
               </div>
-              
+
               <div className="glass-effect rounded-xl p-6">
                 <div className="w-12 h-12 gradient-tertiary rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-background font-bold text-xl">🏆</span>

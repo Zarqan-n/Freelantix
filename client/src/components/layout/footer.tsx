@@ -23,9 +23,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "LinkedIn", icon: "fab fa-linkedin", href: "#", color: "neon-blue" },
-  { name: "Twitter", icon: "fab fa-twitter", href: "#", color: "neon-green" },
-  { name: "Instagram", icon: "fab fa-instagram", href: "#", color: "neon-pink" }
+  { name: "LinkedIn", icon: "fab fa-linkedin", href: "#", color: "hover:text-blue-400" },
+  { name: "Twitter", icon: "fab fa-twitter", href: "#", color: "hover:text-green-400" },
+  { name: "Instagram", icon: "fab fa-instagram", href: "https://www.instagram.com/freelantixx?igsh=MXZlcmtkeWw0ejZpZQ==", color: "hover:text-pink-400" },
 ];
 
 export default function Footer() {
@@ -35,7 +35,7 @@ export default function Footer() {
       <div className="absolute inset-0 gradient-bg opacity-50"></div>
       <div className="absolute top-0 left-1/4 w-64 h-64 gradient-primary rounded-full opacity-10 blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-48 h-48 gradient-secondary rounded-full opacity-10 blur-3xl"></div>
-      
+
       <div className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* Brand */}
@@ -49,13 +49,13 @@ export default function Footer() {
             <p className="text-muted-foreground mb-8 max-w-md text-lg leading-relaxed">
               Building cutting-edge digital experiences that drive business growth and transform ideas into reality.
             </p>
-            
+
             {/* Newsletter Signup */}
             <div className="mb-8">
               <h4 className="text-lg font-semibold mb-4 text-gradient-secondary">Stay Updated</h4>
               <div className="flex gap-3 max-w-md">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder="Enter your email"
                   className="flex-1 px-4 py-3 bg-card border border-border/30 rounded-lg focus:outline-none focus:border-neon-blue/50 text-foreground placeholder:text-muted-foreground"
                 />
@@ -64,17 +64,20 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`w-12 h-12 glass-effect rounded-xl flex items-center justify-center text-muted-foreground hover:${social.color} hover:scale-110 transition-all duration-300 group`}
+                  className={`w-12 h-12 glass-effect rounded-xl flex items-center justify-center text-muted-foreground transition-all duration-300 group hover:scale-110 ${social.color}`}
                 >
                   <i className={`${social.icon} text-xl group-hover:animate-pulse`}></i>
                 </motion.a>
@@ -93,7 +96,7 @@ export default function Footer() {
               {footerLinks.services.map((link, index) => (
                 <li key={link.name}>
                   <Link href={link.href}>
-                    <motion.span 
+                    <motion.span
                       className="text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer flex items-center group"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
@@ -119,7 +122,7 @@ export default function Footer() {
               {footerLinks.company.map((link, index) => (
                 <li key={link.name}>
                   <Link href={link.href}>
-                    <motion.span 
+                    <motion.span
                       className="text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer flex items-center group"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
@@ -132,13 +135,13 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            
+
             <h4 className="text-lg font-semibold mb-4 neon-pink">Legal</h4>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href}>
-                    <span 
+                    <span
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 cursor-pointer"
                       onClick={() => window.scrollTo(0, 0)}
                     >
@@ -169,14 +172,14 @@ export default function Footer() {
                   Made with <span className="neon-pink">♥</span> for ambitious businesses
                 </p>
               </div>
-              
+
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <span className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
                   All systems operational
                 </span>
                 <Link href="/contact">
-                  <span 
+                  <span
                     className="text-neon-blue hover:text-neon-blue/80 transition-colors cursor-pointer"
                     onClick={() => window.scrollTo(0, 0)}
                   >
