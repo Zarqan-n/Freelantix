@@ -33,13 +33,13 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "+91 8017927972",
     color: "neon-green"
   },
   {
     icon: MapPin,
     title: "Location",
-    value: "San Francisco, CA",
+    value: "Bangalore, India",
     color: "neon-pink"
   }
 ];
@@ -509,7 +509,7 @@ export default function Contact() {
                   </p>
                   <div className="grid grid-cols-3 gap-4">
                     <motion.a
-                      href="https://linkedin.com/company/freelantix"
+                      href="https://linkedin.com/in/freelantix"
                       target="_blank"
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0 }}
@@ -543,7 +543,7 @@ export default function Contact() {
                     </motion.a>
 
                     <motion.a
-                      href="https://instagram.com/freelantix"
+                      href="https://instagram.com/freelantixx"
                       target="_blank"
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0 }}
