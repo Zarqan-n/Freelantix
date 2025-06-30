@@ -385,7 +385,7 @@ export default function Home() {
                     {/* Revolutionary 3D Floating Metrics Grid - Enhanced responsive grid */}
                     <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-6 xl:gap-8 w-full max-w-[280px] sm:max-w-md lg:max-w-lg xl:max-w-2xl perspective-1000">
                       {[
-                        { value: "99.9%", label: "Uptime", color: "neon-blue", delay: 0 },
+                        { value: "99%", label: "Uptime", color: "neon-blue", delay: 0 },
                         { value: "0.8s", label: "Load Time", color: "neon-green", delay: 0.2 },
                         { value: "A+", label: "Security", color: "neon-pink", delay: 0.4 },
                         { value: "24/7", label: "Support", color: "neon-purple", delay: 0.6 }

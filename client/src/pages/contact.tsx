@@ -27,7 +27,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "hello@freelantix.com",
+    value: "freelantixx@gmail.com",
     color: "neon-blue"
   },
   {

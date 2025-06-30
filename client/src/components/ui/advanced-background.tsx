@@ -28,12 +28,12 @@ export default function AdvancedBackground({
     const points: Array<{ x: number; y: number; vx: number; vy: number }> = [];
     
     // Initialize constellation points
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
       points.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5
+        vx: (Math.random() - 0.5) * 3,
+        vy: (Math.random() - 0.5) * 3
       });
     }
 
@@ -61,7 +61,7 @@ export default function AdvancedBackground({
           
           if (distance < 100) {
             const opacity = 1 - distance / 100;
-            ctx.strokeStyle = `rgba(26, 231, 255, ${opacity * 0.2})`;
+            ctx.strokeStyle = `rgba(26, 231, 255, ${opacity * 1})`;
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
             ctx.lineTo(points[j].x, points[j].y);
